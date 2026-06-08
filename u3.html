@@ -117,6 +117,10 @@ details .sol .final{margin-top:10px;padding:8px 12px;background:#f0f9f4;border-l
 
 footer{margin-top:56px;padding-top:20px;border-top:1px solid #e5e5e5;color:#888;font-size:12.5px;text-align:center}
 
+.img-figura{margin:24px 0;text-align:center}
+.img-figura img{max-width:100%;height:auto;border:1px solid #e5e5e5;border-radius:4px}
+.img-figura figcaption{margin-top:6px;color:#888;font-size:13px}
+
 @media(max-width:640px){
   body{font-size:15px}
   .container{padding:80px 18px 60px}
@@ -218,36 +222,10 @@ PMe = PT / L
 <p>El <strong>máximo del PMe</strong> se denomina <strong>óptimo técnico</strong>: es la combinación más eficiente en términos de producción media por unidad de insumo. En el ejemplo ocurre con 5 trabajadores (PMe = 100). Cuando el PML es mayor que el PMe, el PMe es creciente; cuando el PML lo corta por debajo, el PMe alcanza su máximo.</p>
 </div>
 
-<div class="graph">
-<svg viewBox="0 0 480 200" width="480" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Curvas de PT, PML y PMe">
-  <!-- PT curve -->
-  <text x="10" y="18" font-size="11" fill="#666">PT</text>
-  <text x="240" y="18" font-size="11" fill="#666">PML y PMe</text>
-  <!-- Left chart axes -->
-  <line x1="30" y1="170" x2="210" y2="170" stroke="#ccc" stroke-width="1"/>
-  <line x1="30" y1="20" x2="30" y2="170" stroke="#ccc" stroke-width="1"/>
-  <!-- PT curve (S-shape) -->
-  <path d="M30,170 C50,165 70,140 100,100 S140,50 160,35 S190,28 210,28" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-  <text x="165" y="26" font-size="10" fill="#1a1a1a">PT</text>
-  <text x="30" y="185" font-size="10" fill="#888">0</text>
-  <text x="200" y="185" font-size="10" fill="#888">L</text>
-  <!-- Right chart axes -->
-  <line x1="250" y1="170" x2="450" y2="170" stroke="#ccc" stroke-width="1"/>
-  <line x1="250" y1="20" x2="250" y2="170" stroke="#ccc" stroke-width="1"/>
-  <!-- PML curve (inverted U) -->
-  <path d="M250,160 C270,130 295,70 320,50 S360,65 400,110 S430,145 450,160" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="5,3"/>
-  <!-- PMe curve (less steep inverted U) -->
-  <path d="M250,165 C270,145 295,95 330,75 S370,80 410,110 S435,140 450,155" fill="none" stroke="#666" stroke-width="2"/>
-  <text x="395" y="100" font-size="10" fill="#1a1a1a">PML</text>
-  <text x="420" y="125" font-size="10" fill="#666">PMe</text>
-  <!-- Optimo tecnico marker -->
-  <line x1="330" y1="75" x2="330" y2="170" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,2"/>
-  <text x="316" y="167" font-size="9" fill="#16a34a">Opt. tec.</text>
-  <text x="250" y="185" font-size="10" fill="#888">0</text>
-  <text x="440" y="185" font-size="10" fill="#888">L</text>
-</svg>
-<div class="caption">Izquierda: PT en forma de S. Derecha: PML (trazos) e PMe (gris). El óptimo técnico es donde PML corta PMe en su máximo.</div>
-</div>
+<figure class="img-figura">
+  <img src="img/u3/u3_PT_PML_PMe.png" alt="Curvas de PT, PML y PMe: producto total en forma de S y óptimo técnico" loading="lazy">
+  <figcaption><small>Fuente: apunte de cátedra UCES 2026. Izquierda: PT en forma de S. Derecha: PML y PMe con óptimo técnico donde PML = PMe en su máximo.</small></figcaption>
+</figure>
 
 
 <h2 id="u3-4">4. Ley de los rendimientos decrecientes</h2>
@@ -327,31 +305,10 @@ CFMe = CF / q     CVMe = CV / q     CTMe = CT / q = CFMe + CVMe
 
 <h2 id="u3-7">7. Curvas de costo: forma de U</h2>
 
-<div class="graph">
-<svg viewBox="0 0 420 200" width="420" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Curvas de costos CM CTMe CVMe">
-  <line x1="30" y1="170" x2="400" y2="170" stroke="#ccc" stroke-width="1"/>
-  <line x1="30" y1="10" x2="30" y2="170" stroke="#ccc" stroke-width="1"/>
-  <!-- CFMe: hyperbola -->
-  <path d="M50,40 Q80,80 120,110 T250,140 T380,150" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <text x="355" y="148" font-size="10" fill="#9ca3af">CFMe</text>
-  <!-- CVMe: U-shape -->
-  <path d="M50,155 Q100,100 170,80 S250,80 300,95 S360,125 390,155" fill="none" stroke="#666" stroke-width="2"/>
-  <text x="355" y="130" font-size="10" fill="#666">CVMe</text>
-  <!-- CTMe: U-shape higher -->
-  <path d="M50,130 Q100,80 170,65 S250,65 300,80 S360,105 390,135" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-  <text x="355" y="88" font-size="10" fill="#1a1a1a">CTMe</text>
-  <!-- CM: U-shape steeper -->
-  <path d="M50,160 Q90,80 140,50 S180,40 200,45 S240,65 300,110 S360,145 390,165" fill="none" stroke="#ef4444" stroke-width="2"/>
-  <text x="290" y="95" font-size="10" fill="#ef4444">CM</text>
-  <!-- CM crosses CTMe at its min -->
-  <line x1="190" y1="45" x2="190" y2="170" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-  <text x="178" y="168" font-size="9" fill="#ef4444">min CTMe</text>
-  <text x="30" y="185" font-size="10" fill="#888">0</text>
-  <text x="390" y="185" font-size="10" fill="#888">q</text>
-  <text x="8" y="10" font-size="10" fill="#888">$</text>
-</svg>
-<div class="caption">La curva CM (rojo) corta al CTMe y CVMe en sus respectivos mínimos. La forma de U se explica por la ley de rendimientos decrecientes.</div>
-</div>
+<figure class="img-figura">
+  <img src="img/u3/u3_costos_CM_CTMe_CVMe.png" alt="Curvas de costos: CM corta CTMe y CVMe en sus mínimos, forma de U" loading="lazy">
+  <figcaption><small>Fuente: apunte de cátedra UCES 2026. La curva CM corta al CTMe y CVMe en sus respectivos mínimos; la forma de U surge de los rendimientos decrecientes.</small></figcaption>
+</figure>
 
 <div class="box">
 <span class="label">Relación CM y CMe</span>
@@ -406,31 +363,10 @@ w / r = PML / PMK   equivalente a   PML / w = PMK / r
 
 <p>Significado: el <strong>último peso gastado en trabajo produce lo mismo que el último peso gastado en capital</strong>. Si no fuera así, convendría reasignar factores.</p>
 
-<div class="graph">
-<svg viewBox="0 0 340 230" width="340" height="230" xmlns="http://www.w3.org/2000/svg" aria-label="Isocuanta e isocosto">
-  <line x1="30" y1="200" x2="310" y2="200" stroke="#ccc" stroke-width="1"/>
-  <line x1="30" y1="10" x2="30" y2="200" stroke="#ccc" stroke-width="1"/>
-  <!-- isocuanta -->
-  <path d="M50,190 Q80,120 120,80 S200,50 290,40" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-  <text x="262" y="36" font-size="11" fill="#1a1a1a">q₀</text>
-  <!-- isocosto bajo -->
-  <line x1="50" y1="190" x2="200" y2="30" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <!-- isocosto optimo -->
-  <line x1="30" y1="175" x2="270" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
-  <text x="255" y="12" font-size="10" fill="#1a1a1a">Isocosto opt.</text>
-  <!-- tangency point -->
-  <circle cx="130" cy="80" r="5" fill="#ef4444"/>
-  <text x="138" y="78" font-size="11" fill="#ef4444">E*</text>
-  <line x1="130" y1="80" x2="130" y2="200" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-  <line x1="30" y1="80" x2="130" y2="80" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-  <text x="133" y="198" font-size="10" fill="#ef4444">L*</text>
-  <text x="6" y="83" font-size="10" fill="#ef4444">K*</text>
-  <text x="30" y="215" font-size="10" fill="#888">0</text>
-  <text x="302" y="215" font-size="10" fill="#888">L (trabajo)</text>
-  <text x="5" y="12" font-size="10" fill="#888">K</text>
-</svg>
-<div class="caption">E* es el punto óptimo: la isocuanta q₀ es tangente al isocosto de menor costo posible. En ese punto PML/w = PMK/r.</div>
-</div>
+<figure class="img-figura">
+  <img src="img/u3/u3_equilibrio_productor.png" alt="Curva isocuanta Q=60 con recta isocosto: equilibrio del productor en el punto de tangencia" loading="lazy">
+  <figcaption><small>Fuente: apunte de cátedra UCES 2026. La combinación óptima (menor costo para Q=60) se obtiene en la tangencia entre la isocuanta y la isocosto; allí PML/w = PMK/r.</small></figcaption>
+</figure>
 
 
 <h2 class="unit">Oferta</h2>

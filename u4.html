@@ -96,6 +96,10 @@ tr:nth-child(even) td{background:#f5f5f5}
 
 svg.diagram{display:block;margin:22px auto;max-width:100%}
 
+.img-figura{margin:24px 0;text-align:center}
+.img-figura img{max-width:100%;height:auto;border:1px solid #e5e5e5;border-radius:4px}
+.img-figura figcaption{margin-top:6px;color:#888;font-size:13px}
+
 .exercises{margin:28px 0}
 .ex{border:1px solid #e5e5e5;border-radius:8px;margin-bottom:14px;overflow:hidden}
 .ex summary{
@@ -184,51 +188,10 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     <li><strong>Exceso de oferta (excedente):</strong> el precio está por encima de Pe, la cantidad ofrecida supera a la demandada. Los vendedores compiten entre sí y el precio baja.</li>
   </ul>
 
-  <!-- SVG: Equilibrio, exceso de demanda y exceso de oferta -->
-  <svg class="diagram" viewBox="0 0 520 300" width="520" height="300" aria-label="Equilibrio de mercado, exceso de demanda y exceso de oferta">
-    <defs>
-      <marker id="ah4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-    <!-- Ejes -->
-    <line x1="50" y1="260" x2="480" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4)"/>
-    <line x1="50" y1="260" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4)"/>
-    <text x="490" y="264" font-size="13" fill="#555">Q</text>
-    <text x="34" y="15" font-size="13" fill="#555">P</text>
-
-    <!-- Curva demanda -->
-    <line x1="80" y1="60" x2="430" y2="240" stroke="#2563eb" stroke-width="2.2"/>
-    <text x="438" y="245" font-size="12" fill="#2563eb" font-weight="600">D</text>
-
-    <!-- Curva oferta -->
-    <line x1="80" y1="240" x2="430" y2="60" stroke="#16a34a" stroke-width="2.2"/>
-    <text x="438" y="65" font-size="12" fill="#16a34a" font-weight="600">O</text>
-
-    <!-- Equilibrio -->
-    <circle cx="255" cy="150" r="5" fill="#1a1a1a"/>
-    <text x="262" y="148" font-size="12" fill="#1a1a1a" font-weight="700">E</text>
-
-    <!-- Pe linea horizontal -->
-    <line x1="50" y1="150" x2="255" y2="150" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
-    <text x="30" y="154" font-size="12" fill="#555">Pe</text>
-    <!-- Qe linea vertical -->
-    <line x1="255" y1="150" x2="255" y2="260" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
-    <text x="247" y="274" font-size="12" fill="#555">Qe</text>
-
-    <!-- Exceso de demanda (precio bajo) -->
-    <line x1="50" y1="200" x2="470" y2="200" stroke="#ef4444" stroke-width="1" stroke-dasharray="5,3"/>
-    <text x="28" y="204" font-size="11" fill="#ef4444">P'</text>
-    <!-- Qd -->
-    <line x1="353" y1="200" x2="353" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="348" y="274" font-size="11" fill="#ef4444">Qd</text>
-    <!-- Qs -->
-    <line x1="158" y1="200" x2="158" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="153" y="274" font-size="11" fill="#ef4444">Qs</text>
-    <!-- Flecha escasez -->
-    <line x1="170" y1="215" x2="340" y2="215" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ah4)"/>
-    <text x="210" y="232" font-size="11" fill="#ef4444">exceso de demanda</text>
-  </svg>
+  <figure class="img-figura">
+    <img src="img/u4/u4_equilibrio_mercado.png" alt="Equilibrio de mercado: intersección oferta y demanda, precio Pe y cantidad Qe de equilibrio" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. El equilibrio se produce en la intersección de O y D; por debajo de Pe hay exceso de demanda, por encima hay exceso de oferta.</small></figcaption>
+  </figure>
 
   <h3>Efectos de los cambios en oferta y demanda</h3>
   <p>Cuando se produce un desplazamiento de alguna de las curvas, el punto de equilibrio cambia:</p>
@@ -270,79 +233,15 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     <li>Ejemplo típico: salario mínimo en el mercado laboral.</li>
   </ul>
 
-  <!-- SVG: precio máximo y precio mínimo -->
-  <svg class="diagram" viewBox="0 0 520 300" width="520" height="300" aria-label="Precio máximo y precio mínimo">
-    <defs>
-      <marker id="ah4b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-
-    <!-- Panel izquierdo: precio maximo -->
-    <!-- Ejes -->
-    <line x1="40" y1="260" x2="230" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <line x1="40" y1="260" x2="40" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <text x="238" y="264" font-size="11" fill="#555">Q</text>
-    <text x="25" y="15" font-size="11" fill="#555">P</text>
-    <text x="80" y="12" font-size="12" fill="#1a1a1a" font-weight="700">Precio máximo</text>
-
-    <!-- D y O izquierda -->
-    <line x1="60" y1="50" x2="210" y2="240" stroke="#2563eb" stroke-width="2"/>
-    <text x="216" y="244" font-size="11" fill="#2563eb" font-weight="600">D</text>
-    <line x1="60" y1="240" x2="210" y2="50" stroke="#16a34a" stroke-width="2"/>
-    <text x="216" y="55" font-size="11" fill="#16a34a" font-weight="600">O</text>
-
-    <!-- Eq izquierda en (135,145) -->
-    <circle cx="135" cy="145" r="4" fill="#1a1a1a"/>
-    <line x1="40" y1="145" x2="135" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="20" y="149" font-size="11" fill="#555">Pe</text>
-
-    <!-- Precio maximo Pmax por debajo de Pe, en y=190 -->
-    <line x1="40" y1="190" x2="215" y2="190" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6,3"/>
-    <text x="18" y="194" font-size="11" fill="#ef4444">Pm</text>
-
-    <!-- Qs (ofrecido a Pmax) y Qd (demandado a Pmax) -->
-    <line x1="93" y1="190" x2="93" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="88" y="272" font-size="10" fill="#ef4444">Qs</text>
-    <line x1="178" y1="190" x2="178" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="173" y="272" font-size="10" fill="#ef4444">Qd</text>
-
-    <!-- Flecha escasez -->
-    <line x1="100" y1="205" x2="170" y2="205" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <text x="105" y="220" font-size="10" fill="#ef4444">escasez</text>
-
-    <!-- Panel derecho: precio minimo -->
-    <line x1="290" y1="260" x2="480" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <line x1="290" y1="260" x2="290" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <text x="488" y="264" font-size="11" fill="#555">Q</text>
-    <text x="275" y="15" font-size="11" fill="#555">P</text>
-    <text x="320" y="12" font-size="12" fill="#1a1a1a" font-weight="700">Precio mínimo</text>
-
-    <!-- D y O derecha -->
-    <line x1="310" y1="50" x2="460" y2="240" stroke="#2563eb" stroke-width="2"/>
-    <text x="466" y="244" font-size="11" fill="#2563eb" font-weight="600">D</text>
-    <line x1="310" y1="240" x2="460" y2="50" stroke="#16a34a" stroke-width="2"/>
-    <text x="466" y="55" font-size="11" fill="#16a34a" font-weight="600">O</text>
-
-    <!-- Eq derecha en (385,145) -->
-    <circle cx="385" cy="145" r="4" fill="#1a1a1a"/>
-    <line x1="290" y1="145" x2="385" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="270" y="149" font-size="11" fill="#555">Pe</text>
-
-    <!-- Precio minimo Pmin por encima de Pe, en y=100 -->
-    <line x1="290" y1="100" x2="465" y2="100" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6,3"/>
-    <text x="268" y="104" font-size="11" fill="#f59e0b">Pm</text>
-
-    <!-- Qd (demandado a Pmin) y Qs (ofrecido a Pmin) -->
-    <line x1="343" y1="100" x2="343" y2="260" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="338" y="272" font-size="10" fill="#f59e0b">Qd</text>
-    <line x1="428" y1="100" x2="428" y2="260" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="423" y="272" font-size="10" fill="#f59e0b">Qs</text>
-
-    <!-- Flecha excedente -->
-    <line x1="350" y1="115" x2="420" y2="115" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#ah4b)"/>
-    <text x="350" y="130" font-size="10" fill="#f59e0b">excedente</text>
-  </svg>
+  <!-- FIGURAS: precio máximo y precio mínimo -->
+  <figure class="img-figura">
+    <img src="img/u4/u4_precio_maximo.png" alt="Precio máximo: vacuna. Caso relevante genera escasez cuando el techo está por debajo del precio de equilibrio" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. Precio máximo relevante (por debajo de Pe): genera escasez. Precio máximo no relevante (por encima de Pe): sin efecto.</small></figcaption>
+  </figure>
+  <figure class="img-figura">
+    <img src="img/u4/u4_precio_minimo.png" alt="Precio mínimo: trigo. Caso relevante genera excedente cuando el piso está por encima del precio de equilibrio" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. Precio mínimo relevante (por encima de Pe): genera excedente (Qs > Qd).</small></figcaption>
+  </figure>
 
   <!-- ===== EQUILIBRIO ALGEBRAICO ===== -->
   <h2>Equilibrio algebraico</h2>
@@ -466,29 +365,11 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     <li><strong>IM = ΔIT/Δq = P:</strong> cada unidad adicional vendida aporta exactamente P</li>
   </ul>
 
-  <!-- SVG: curva de demanda horizontal de la empresa competitiva -->
-  <svg class="diagram" viewBox="0 0 420 240" width="420" height="240" aria-label="Curva de demanda horizontal empresa competitiva">
-    <defs>
-      <marker id="ah4c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-    <line x1="50" y1="210" x2="400" y2="210" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4c)"/>
-    <line x1="50" y1="210" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4c)"/>
-    <text x="408" y="214" font-size="13" fill="#555">q</text>
-    <text x="34" y="15" font-size="13" fill="#555">P</text>
-
-    <!-- Linea horizontal -->
-    <line x1="50" y1="100" x2="380" y2="100" stroke="#2563eb" stroke-width="2.5"/>
-    <text x="384" y="105" font-size="13" fill="#2563eb" font-weight="700">d = P = IMe = IM</text>
-
-    <!-- P en eje -->
-    <line x1="50" y1="100" x2="50" y2="100" stroke="#888" stroke-width="1"/>
-    <text x="30" y="104" font-size="13" fill="#555" font-weight="600">P</text>
-
-    <!-- Anotacion: la empresa puede vender lo que quiera a P -->
-    <text x="120" y="85" font-size="12" fill="#888" font-style="italic">precio de mercado dado</text>
-  </svg>
+  <!-- Figura: equilibrio mercado + demanda horizontal empresa competitiva -->
+  <figure class="img-figura">
+    <img src="img/u4/u4_demanda_horizontal_empresa.png" alt="Equilibrio de mercado (a) y curva de demanda horizontal de la empresa competitiva d=P=IMe=IM (b)" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. La empresa precio-aceptante enfrenta una demanda horizontal: puede vender cualquier cantidad al precio de mercado Pe, y d = P = IMe = IM.</small></figcaption>
+  </figure>
 
   <!-- ===== MAXIMIZACION DEL BENEFICIO ===== -->
   <h2>Maximización del beneficio en competencia perfecta</h2>
@@ -538,52 +419,11 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     <p style="margin-top:10px">Regla: si <strong>P ≥ CVMe</strong>, conviene producir (aunque haya pérdidas se cubren al menos los costos variables); si <strong>P &lt; CVMe</strong>, conviene cerrar.</p>
   </div>
 
-  <!-- SVG: curva de oferta de corto plazo -->
-  <svg class="diagram" viewBox="0 0 420 300" width="420" height="300" aria-label="Curva de oferta de corto plazo: puntos de nivelación y cierre">
-    <defs>
-      <marker id="ah4d" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-    <line x1="50" y1="270" x2="400" y2="270" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4d)"/>
-    <line x1="50" y1="270" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4d)"/>
-    <text x="408" y="274" font-size="13" fill="#555">q</text>
-    <text x="34" y="15" font-size="13" fill="#555">P</text>
-
-    <!-- CVMe: curva en U alta -->
-    <path d="M 80,220 Q 180,130 330,160" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    <text x="338" y="165" font-size="12" fill="#f59e0b" font-weight="600">CVMe</text>
-
-    <!-- CTMe: curva en U mas alta -->
-    <path d="M 80,180 Q 190,90 330,110" fill="none" stroke="#ef4444" stroke-width="2"/>
-    <text x="338" y="115" font-size="12" fill="#ef4444" font-weight="600">CTMe</text>
-
-    <!-- CM: curva creciente, corta los minimos de CVMe y CTMe -->
-    <path d="M 80,250 Q 100,200 140,165 Q 200,110 330,60" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
-    <text x="338" y="65" font-size="12" fill="#1a1a1a" font-weight="700">CM</text>
-
-    <!-- Punto de cierre C donde CM = CVMe min -->
-    <circle cx="195" cy="152" r="5" fill="#f59e0b"/>
-    <text x="202" y="148" font-size="12" fill="#f59e0b" font-weight="700">C</text>
-    <line x1="50" y1="152" x2="195" y2="152" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="26" y="156" font-size="11" fill="#f59e0b">CVMe</text>
-    <text x="26" y="168" font-size="11" fill="#f59e0b">min</text>
-
-    <!-- Punto de nivelacion N donde CM = CTMe min -->
-    <circle cx="220" cy="112" r="5" fill="#ef4444"/>
-    <text x="228" y="108" font-size="12" fill="#ef4444" font-weight="700">N</text>
-    <line x1="50" y1="112" x2="220" y2="112" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="26" y="116" font-size="11" fill="#ef4444">CTMe</text>
-    <text x="26" y="128" font-size="11" fill="#ef4444">min</text>
-
-    <!-- Oferta = CM por encima de C -->
-    <path d="M 195,152 Q 240,110 330,60" fill="none" stroke="#2563eb" stroke-width="3.5"/>
-    <text x="340" y="55" font-size="12" fill="#2563eb" font-weight="700">O</text>
-
-    <!-- Zona de cierre -->
-    <rect x="50" y="152" width="145" height="118" fill="#fef9c3" opacity="0.4"/>
-    <text x="90" y="220" font-size="11" fill="#92400e">zona de cierre</text>
-  </svg>
+  <!-- Figura: curva de oferta de corto plazo con puntos N y C -->
+  <figure class="img-figura">
+    <img src="img/u4/u4_oferta_cp.png" alt="Curva de oferta de corto plazo: punto de nivelación N (CM=CTMe) y punto de cierre C (CM=CVMe)" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. La oferta coincide con CM por encima del punto C (cierre). N es el punto de beneficio nulo; entre C y N la empresa cubre costos variables pero tiene pérdidas.</small></figcaption>
+  </figure>
 
   <!-- ===== LARGO PLAZO EN COMPETENCIA PERFECTA ===== -->
   <h2>Largo plazo en competencia perfecta</h2>

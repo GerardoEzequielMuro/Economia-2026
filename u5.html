@@ -87,6 +87,10 @@ tr:nth-child(even) td{background:#f5f5f5}
 
 svg.diagram{display:block;margin:22px auto;max-width:100%}
 
+.img-figura{margin:24px 0;text-align:center}
+.img-figura img{max-width:100%;height:auto;border:1px solid #e5e5e5;border-radius:4px}
+.img-figura figcaption{margin-top:6px;color:#888;font-size:13px}
+
 .exercises{margin:28px 0}
 .ex{border:1px solid #e5e5e5;border-radius:8px;margin-bottom:14px;overflow:hidden}
 .ex summary{
@@ -228,62 +232,11 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     Precio: P = Demanda(q*)
   </div>
 
-  <!-- SVG: Monopolio con IM, D, CM y area de beneficio -->
-  <svg class="diagram" viewBox="0 0 460 320" width="460" height="320" aria-label="Maximización del monopolista: IM = CM, precio sobre la demanda">
-    <defs>
-      <marker id="ah5a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-    <line x1="50" y1="280" x2="430" y2="280" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5a)"/>
-    <line x1="50" y1="280" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5a)"/>
-    <text x="438" y="284" font-size="13" fill="#555">Q</text>
-    <text x="34" y="15" font-size="13" fill="#555">P</text>
-
-    <!-- Demanda D (pendiente negativa) -->
-    <line x1="80" y1="60" x2="400" y2="260" stroke="#2563eb" stroke-width="2"/>
-    <text x="405" y="265" font-size="12" fill="#2563eb" font-weight="600">D = IMe</text>
-
-    <!-- IM (pendiente mas pronunciada, parte del mismo intercepto) -->
-    <line x1="80" y1="60" x2="240" y2="260" stroke="#7c3aed" stroke-width="2"/>
-    <text x="245" y="265" font-size="12" fill="#7c3aed" font-weight="600">IM</text>
-
-    <!-- CM (creciente) -->
-    <path d="M 80,240 Q 150,180 240,140 Q 310,110 400,80" fill="none" stroke="#16a34a" stroke-width="2"/>
-    <text x="405" y="82" font-size="12" fill="#16a34a" font-weight="600">CM</text>
-
-    <!-- CTMe (U shape) -->
-    <path d="M 80,220 Q 160,140 240,130 Q 310,125 400,115" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3"/>
-    <text x="405" y="118" font-size="12" fill="#f59e0b">CTMe</text>
-
-    <!-- Punto optimo: IM = CM en q* aprox x=165, y=185 -->
-    <circle cx="165" cy="185" r="5" fill="#1a1a1a"/>
-    <!-- q* linea vertical -->
-    <line x1="165" y1="185" x2="165" y2="280" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="158" y="294" font-size="12" fill="#555">Qm</text>
-
-    <!-- Pm: bajar desde demanda al precio -->
-    <circle cx="165" cy="122" r="4" fill="#2563eb"/>
-    <line x1="50" y1="122" x2="165" y2="122" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="28" y="126" font-size="12" fill="#555">Pm</text>
-
-    <!-- Precio competitivo Pc: interseccion D con CM aprox -->
-    <circle cx="275" cy="162" r="4" fill="#16a34a"/>
-    <line x1="50" y1="162" x2="275" y2="162" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="28" y="166" font-size="12" fill="#aaa">Pc</text>
-    <line x1="275" y1="162" x2="275" y2="280" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="268" y="294" font-size="12" fill="#aaa">Qc</text>
-
-    <!-- Rectángulo beneficio monopolista -->
-    <!-- CTMe a Qm aprox y=130 -->
-    <rect x="50" y="122" width="115" height="13" fill="#d1fae5" opacity="0.6"/>
-    <text x="62" y="134" font-size="10" fill="#065f46">beneficio</text>
-
-    <!-- Triangulo perdida social entre Qm y Qc -->
-    <polygon points="165,122 275,162 275,122" fill="#fee2e2" opacity="0.5"/>
-    <text x="186" y="148" font-size="10" fill="#991b1b">costo</text>
-    <text x="186" y="160" font-size="10" fill="#991b1b">social</text>
-  </svg>
+  <!-- Figura: monopolio - costo social (D, IM, CM, Pm, Qm, Qc, perdida social) -->
+  <figure class="img-figura">
+    <img src="img/u5/u5_monopolio_costo_social.png" alt="Maximización del monopolista: IM=CM determina Qm, Pm sobre la demanda; triángulo de pérdida irrecuperable de eficiencia entre Qm y Qc" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. El monopolista produce Qm (donde IM=CM) y cobra Pm (sobre la demanda). La pérdida irrecuperable de eficiencia (deadweight loss) es el triángulo entre Pm, Pc y Qm-Qc.</small></figcaption>
+  </figure>
 
   <h3>Monopolio vs. competencia perfecta</h3>
   <table>
@@ -391,54 +344,11 @@ footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
     P > CM    (ineficiencia: exceso de capacidad)
   </div>
 
-  <!-- SVG: Competencia monopolística en largo plazo -->
-  <svg class="diagram" viewBox="0 0 440 300" width="440" height="300" aria-label="Equilibrio de largo plazo en competencia monopolística">
-    <defs>
-      <marker id="ah5b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-      </marker>
-    </defs>
-    <line x1="50" y1="270" x2="410" y2="270" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5b)"/>
-    <line x1="50" y1="270" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5b)"/>
-    <text x="418" y="274" font-size="13" fill="#555">q</text>
-    <text x="34" y="15" font-size="13" fill="#555">P</text>
-
-    <!-- Demanda empresa (decreciente) -->
-    <line x1="80" y1="70" x2="370" y2="230" stroke="#2563eb" stroke-width="2"/>
-    <text x="376" y="235" font-size="12" fill="#2563eb" font-weight="600">d</text>
-
-    <!-- IM (mas pronunciada) -->
-    <line x1="80" y1="70" x2="225" y2="270" stroke="#7c3aed" stroke-width="1.8"/>
-    <text x="230" y="268" font-size="12" fill="#7c3aed" font-weight="600">IM</text>
-
-    <!-- CM (creciente) -->
-    <path d="M 80,250 Q 130,190 180,155 Q 240,120 360,80" fill="none" stroke="#16a34a" stroke-width="2"/>
-    <text x="365" y="82" font-size="12" fill="#16a34a" font-weight="600">CM</text>
-
-    <!-- CTMe (U shape, tangente a la demanda) -->
-    <path d="M 80,200 Q 155,110 210,100 Q 265,95 360,110" fill="none" stroke="#ef4444" stroke-width="2"/>
-    <text x="365" y="113" font-size="12" fill="#ef4444" font-weight="600">CTMe</text>
-
-    <!-- Punto optimo IM=CM aprox q*=155, y=168 -->
-    <circle cx="155" cy="168" r="5" fill="#1a1a1a"/>
-    <line x1="155" y1="168" x2="155" y2="270" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="148" y="283" font-size="12" fill="#555">q*</text>
-
-    <!-- Pm: sobre la demanda en x=155 -->
-    <!-- Demanda: desde (80,70) a (370,230): pendiente (230-70)/(370-80)=160/290=0.55, y en x=155: 70+(155-80)*0.55=70+41.25=111.25 -->
-    <circle cx="155" cy="111" r="4" fill="#2563eb"/>
-    <line x1="50" y1="111" x2="155" y2="111" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="28" y="115" font-size="12" fill="#555">P*</text>
-
-    <!-- Punto tangencia (p=CTMe): marca la tangencia -->
-    <text x="162" y="104" font-size="10" fill="#ef4444" font-style="italic">tangencia</text>
-
-    <!-- qe: escala eficiente (min CTMe) aprox x=240 -->
-    <line x1="240" y1="97" x2="240" y2="270" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
-    <text x="232" y="283" font-size="11" fill="#ef4444">qe</text>
-    <text x="160" y="250" font-size="11" fill="#ef4444" font-style="italic">exceso de capacidad</text>
-    <line x1="162" y1="243" x2="162" y2="270" stroke="#ef4444" stroke-width="1" marker-end="url(#ah5b)"/>
-  </svg>
+  <!-- Figura: competencia monopolistica - equilibrio corto plazo (beneficio) y largo plazo (tangencia CTMe) -->
+  <figure class="img-figura">
+    <img src="img/u5/u5_comp_monopolistica_lp.png" alt="Competencia monopolística: a) corto plazo con beneficio, b) largo plazo con tangencia d-CTMe y beneficio cero" loading="lazy">
+    <figcaption><small>Fuente: apunte de cátedra UCES 2026. A corto plazo puede haber beneficio (figura a). A largo plazo la entrada de nuevas empresas desplaza la demanda hasta que d es tangente a CTMe: P = CTMe y beneficio = 0, pero P mayor que CM (exceso de capacidad).</small></figcaption>
+  </figure>
 
   <h3>Teorema del exceso de capacidad</h3>
   <p>En el equilibrio de largo plazo de la competencia monopolística, la empresa produce una cantidad <strong>menor</strong> a la de mínimo costo (escala eficiente). Esta diferencia entre la cantidad de mínimo costo y la cantidad producida es el <strong>exceso de capacidad</strong>. Además, P &gt; CM, lo que implica ineficiencia asignativa.</p>
