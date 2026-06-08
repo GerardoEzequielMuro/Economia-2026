@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía I - Unidad 5: Competencia Imperfecta | UCES 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Economía I">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,250,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e5e5;padding:12px 0;
+}
+.nav-inner{
+  max-width:820px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-title{font-weight:600;font-size:15px;white-space:nowrap}
+.nav-links{display:flex;gap:16px;overflow-x:auto;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.nav-links a.active{color:#1a1a1a;font-weight:600}
+
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:32px}
+
+h2{
+  font-size:21px;font-weight:700;margin:52px 0 14px;line-height:1.3;
+  padding-top:22px;border-top:1px solid #e5e5e5;
+}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.unit{
+  text-transform:uppercase;font-size:13px;letter-spacing:.12em;
+  color:#888;margin:60px 0 0;border:none;padding:0;font-weight:600;
+}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px}
+
+p{margin-bottom:12px}
+ul,ol{margin:0 0 14px 20px}
+li{margin-bottom:5px}
+
+.formula{
+  background:#1a1a1a;color:#fafafa;
+  border-radius:8px;padding:16px 20px;
+  font-family:"SF Mono","Fira Mono","Consolas",monospace;
+  font-size:14.5px;line-height:1.6;margin:18px 0;overflow-x:auto;
+}
+.formula .label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#888;display:block;margin-bottom:6px;font-family:inherit}
+
+.big-formula{
+  background:#1a1a1a;color:#e8f4fd;border-radius:10px;
+  padding:20px 24px;margin:20px 0;overflow-x:auto;
+}
+.big-formula .eq{font-size:22px;font-weight:700;letter-spacing:.02em;font-family:"SF Mono","Fira Mono","Consolas",monospace}
+.big-formula .label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#6b9cbe;display:block;margin-bottom:8px}
+
+.vars{margin:14px 0 0;padding:0;list-style:none}
+.vars li{font-size:13.5px;color:#ccc;padding:3px 0;border-bottom:1px solid #2a2a2a}
+.vars li:last-child{border-bottom:none}
+.vars span{color:#fff;font-weight:600;min-width:80px;display:inline-block}
+
+.box{
+  border:1px solid #e5e5e5;border-radius:8px;padding:18px 20px;
+  margin:20px 0;background:#fff;
+}
+.box-title{font-weight:700;font-size:14px;text-transform:uppercase;
+  letter-spacing:.08em;color:#555;margin-bottom:12px}
+
+table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}
+th{background:#1a1a1a;color:#fafafa;padding:9px 12px;text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td{padding:8px 12px;border-bottom:1px solid #e5e5e5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#f5f5f5}
+
+svg.diagram{display:block;margin:22px auto;max-width:100%}
+
+.exercises{margin:28px 0}
+.ex{border:1px solid #e5e5e5;border-radius:8px;margin-bottom:14px;overflow:hidden}
+.ex summary{
+  padding:14px 18px;font-weight:600;font-size:14.5px;cursor:pointer;
+  background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;
+}
+.ex summary::-webkit-details-marker{display:none}
+.ex summary::after{content:"▸";transition:transform .2s;color:#888}
+.ex[open] summary::after{transform:rotate(90deg)}
+.ex .body{padding:18px 20px;background:#fafafa;border-top:1px solid #e5e5e5}
+
+.worked{margin:14px 0}
+.worked .step{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:10px 0;border-bottom:1px solid #e5e5e5;font-size:14.5px;
+}
+.worked .step:last-child{border-bottom:none}
+.worked .step .n{
+  min-width:28px;height:28px;background:#1a1a1a;color:#fafafa;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.worked .step .t{color:#1a1a1a}
+
+.quiz-section{
+  background:#fff;border:1px solid #e5e5e5;border-radius:10px;
+  padding:26px 28px;margin:48px 0 32px;
+}
+.quiz-section h2{
+  border-top:none;padding-top:0;margin-top:0;margin-bottom:18px;font-size:19px;
+}
+.quiz-q{margin-bottom:22px}
+.quiz-q .qtext{font-weight:600;font-size:15px;margin-bottom:10px;line-height:1.45}
+.quiz-q label{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:14.5px;cursor:pointer}
+.quiz-q input[type=radio]{margin-top:4px;flex-shrink:0}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:6px;font-size:14px;display:none}
+.feedback.correct{background:#d1fae5;color:#065f46;display:block}
+.feedback.wrong{background:#fee2e2;color:#991b1b;display:block}
+.check-btn{
+  margin-top:8px;padding:12px 28px;background:#1a1a1a;color:#fafafa;
+  border:none;border-radius:7px;font-size:15px;font-weight:600;cursor:pointer;
+}
+.check-btn:hover{background:#333}
+.quiz-result{
+  margin-top:18px;padding:14px 18px;border-radius:8px;font-size:15px;
+  font-weight:600;text-align:center;display:none;
+}
+
+footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
+  font-size:13px;color:#888;text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Economía I</div>
+    <div class="nav-links">
+      <a href="index.html">U1-U2</a>
+      <a href="u3.html">U3</a>
+      <a href="u4.html">U4</a>
+      <a href="u5.html" class="active">U5</a>
+      <a href="final.html">Final</a>
+      <a href="practica.html">Práctica</a>
+      <a href="formulas.html">Taller</a>
+      <a href="mapa-mental.html">Mapa</a>
+      <a href="parciales.html">Parciales</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p class="unit">Unidad 5</p>
+  <h1>Competencia Imperfecta</h1>
+  <p class="subtitle">Fundamentos de Economía I · Lic. Marisa Soledad Lagraña · UCES 2026</p>
+
+  <!-- ===== INTRODUCCION ===== -->
+  <h2>Introducción: competencia imperfecta</h2>
+
+  <p>En la realidad, la mayoría de los mercados no son de competencia perfecta. En los mercados de <strong>competencia imperfecta</strong>, las empresas enfrentan una curva de demanda con pendiente negativa (decreciente), a diferencia de la curva horizontal de la empresa competitiva. Esto les otorga cierto poder para fijar precios.</p>
+
+  <p>Las causas principales de la imperfección son:</p>
+  <ul>
+    <li><strong>Costos de producción:</strong> las economías de escala permiten que una empresa grande produzca a menor costo que varias pequeñas, reduciendo el número de firmas viables.</li>
+    <li><strong>Barreras a la entrada:</strong> restricciones legales (patentes, licencias), publicidad y diferenciación de productos, costos elevados de instalación.</li>
+  </ul>
+
+  <!-- ===== MONOPOLIO ===== -->
+  <h2>Monopolio</h2>
+
+  <p>El <strong>monopolio</strong> es una estructura de mercado donde existe un único vendedor de un bien sin sustitutos cercanos. Las barreras a la entrada son tan altas que ninguna otra empresa puede ingresar.</p>
+
+  <div class="box">
+    <div class="box-title">Características del monopolio</div>
+    <ul>
+      <li>Un solo productor en el mercado.</li>
+      <li>El bien no tiene sustitutos cercanos.</li>
+      <li>Barreras infranqueables a la entrada.</li>
+      <li>El monopolista enfrenta la curva de demanda del mercado (pendiente negativa).</li>
+      <li>Fija precio y cantidad pero no puede elegir ambos independientemente: al elegir q, P queda determinado por la demanda.</li>
+    </ul>
+  </div>
+
+  <h3>Monopolio natural</h3>
+  <p>Un <strong>monopolio natural</strong> surge cuando los costos medios son decrecientes a lo largo de toda la demanda relevante. En esos casos, una sola empresa puede abastecer el mercado a menor costo que varias. Son ejemplos típicos las redes de distribución de electricidad, gas o agua.</p>
+
+  <h3>Ingreso marginal del monopolista</h3>
+  <p>A diferencia de la empresa competitiva (donde IM = P), el monopolista debe bajar el precio para vender más. Esto genera dos efectos al aumentar en una unidad la producción:</p>
+  <ul>
+    <li><strong>Efecto cantidad:</strong> vende una unidad más al nuevo precio (efecto positivo).</li>
+    <li><strong>Efecto precio:</strong> recibe menos por todas las unidades anteriores que ahora vende más barato (efecto negativo).</li>
+  </ul>
+  <p>Por eso el ingreso marginal es siempre menor que el precio: <strong>IM &lt; P</strong>.</p>
+
+  <table>
+    <thead>
+      <tr><th>Q</th><th>P ($)</th><th>IT ($)</th><th>IM ($)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>8</td><td>0</td><td>—</td></tr>
+      <tr><td>1</td><td>7</td><td>7</td><td>7</td></tr>
+      <tr><td>2</td><td>6</td><td>12</td><td>5</td></tr>
+      <tr><td>3</td><td>5</td><td>15</td><td>3</td></tr>
+      <tr><td>4</td><td>4</td><td>16</td><td>1</td></tr>
+      <tr><td>5</td><td>3</td><td>15</td><td>-1</td></tr>
+      <tr><td>6</td><td>2</td><td>12</td><td>-3</td></tr>
+      <tr><td>7</td><td>1</td><td>7</td><td>-5</td></tr>
+      <tr><td>8</td><td>0</td><td>0</td><td>-7</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Maximización del beneficio del monopolista</h3>
+  <p>El monopolista maximiza su beneficio en la cantidad donde IM = CM, y luego fija el precio sobre la curva de demanda correspondiente a esa cantidad.</p>
+
+  <div class="formula">
+    <span class="label">Condición de maximización del monopolista</span>
+    IM = CM  (y CM creciente)
+    Precio: P = Demanda(q*)
+  </div>
+
+  <!-- SVG: Monopolio con IM, D, CM y area de beneficio -->
+  <svg class="diagram" viewBox="0 0 460 320" width="460" height="320" aria-label="Maximización del monopolista: IM = CM, precio sobre la demanda">
+    <defs>
+      <marker id="ah5a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+    <line x1="50" y1="280" x2="430" y2="280" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5a)"/>
+    <line x1="50" y1="280" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5a)"/>
+    <text x="438" y="284" font-size="13" fill="#555">Q</text>
+    <text x="34" y="15" font-size="13" fill="#555">P</text>
+
+    <!-- Demanda D (pendiente negativa) -->
+    <line x1="80" y1="60" x2="400" y2="260" stroke="#2563eb" stroke-width="2"/>
+    <text x="405" y="265" font-size="12" fill="#2563eb" font-weight="600">D = IMe</text>
+
+    <!-- IM (pendiente mas pronunciada, parte del mismo intercepto) -->
+    <line x1="80" y1="60" x2="240" y2="260" stroke="#7c3aed" stroke-width="2"/>
+    <text x="245" y="265" font-size="12" fill="#7c3aed" font-weight="600">IM</text>
+
+    <!-- CM (creciente) -->
+    <path d="M 80,240 Q 150,180 240,140 Q 310,110 400,80" fill="none" stroke="#16a34a" stroke-width="2"/>
+    <text x="405" y="82" font-size="12" fill="#16a34a" font-weight="600">CM</text>
+
+    <!-- CTMe (U shape) -->
+    <path d="M 80,220 Q 160,140 240,130 Q 310,125 400,115" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="405" y="118" font-size="12" fill="#f59e0b">CTMe</text>
+
+    <!-- Punto optimo: IM = CM en q* aprox x=165, y=185 -->
+    <circle cx="165" cy="185" r="5" fill="#1a1a1a"/>
+    <!-- q* linea vertical -->
+    <line x1="165" y1="185" x2="165" y2="280" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="158" y="294" font-size="12" fill="#555">Qm</text>
+
+    <!-- Pm: bajar desde demanda al precio -->
+    <circle cx="165" cy="122" r="4" fill="#2563eb"/>
+    <line x1="50" y1="122" x2="165" y2="122" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="28" y="126" font-size="12" fill="#555">Pm</text>
+
+    <!-- Precio competitivo Pc: interseccion D con CM aprox -->
+    <circle cx="275" cy="162" r="4" fill="#16a34a"/>
+    <line x1="50" y1="162" x2="275" y2="162" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="28" y="166" font-size="12" fill="#aaa">Pc</text>
+    <line x1="275" y1="162" x2="275" y2="280" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="268" y="294" font-size="12" fill="#aaa">Qc</text>
+
+    <!-- Rectángulo beneficio monopolista -->
+    <!-- CTMe a Qm aprox y=130 -->
+    <rect x="50" y="122" width="115" height="13" fill="#d1fae5" opacity="0.6"/>
+    <text x="62" y="134" font-size="10" fill="#065f46">beneficio</text>
+
+    <!-- Triangulo perdida social entre Qm y Qc -->
+    <polygon points="165,122 275,162 275,122" fill="#fee2e2" opacity="0.5"/>
+    <text x="186" y="148" font-size="10" fill="#991b1b">costo</text>
+    <text x="186" y="160" font-size="10" fill="#991b1b">social</text>
+  </svg>
+
+  <h3>Monopolio vs. competencia perfecta</h3>
+  <table>
+    <thead>
+      <tr><th>Variable</th><th>Competencia perfecta</th><th>Monopolio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Precio</td><td>Pc (más bajo)</td><td>Pm (más alto)</td></tr>
+      <tr><td>Cantidad</td><td>Qc (mayor)</td><td>Qm (menor)</td></tr>
+      <tr><td>Beneficio económico</td><td>0 en largo plazo</td><td>Positivo (extraordinario)</td></tr>
+      <tr><td>Eficiencia social</td><td>Máxima (P = CM)</td><td>Pérdida irrecuperable de eficiencia</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Costo social del monopolio</h3>
+  <p>La pérdida social (peso muerto o <em>deadweight loss</em>) es el valor que dejan de percibir consumidores y productores por producir Qm en lugar de Qc. Se representa como el triángulo entre las curvas de demanda y de CM, entre Qm y Qc.</p>
+
+  <h3>Políticas frente al monopolio</h3>
+  <ul>
+    <li><strong>Regulación de precios:</strong> el Estado fija P = CM (precio eficiente) o P = CTMe (sin pérdidas para la empresa).</li>
+    <li><strong>Legislación antimonopolio:</strong> normas que impiden fusiones o prácticas anticompetitivas.</li>
+    <li><strong>Empresas públicas:</strong> el Estado puede administrar el monopolio natural para maximizar el bienestar.</li>
+  </ul>
+
+  <h3>Discriminación de precios</h3>
+  <p>Un monopolista puede aplicar <strong>discriminación de precios</strong>: cobrar precios distintos a distintos grupos de consumidores por el mismo bien. Requisitos:</p>
+  <ul>
+    <li>El mercado debe poder segmentarse (por edad, geografía, uso, momento).</li>
+    <li>Los compradores no deben poder revender el bien de un segmento a otro.</li>
+  </ul>
+  <p>La discriminación aumenta los ingresos del monopolista y reduce (o elimina) la pérdida social. Ejemplo: tarifas aéreas con precio diferente según la anticipación de la compra.</p>
+
+  <!-- ===== OLIGOPOLIO ===== -->
+  <h2>Oligopolio</h2>
+
+  <p>El <strong>oligopolio</strong> es un mercado con pocos vendedores, cuyas decisiones son interdependientes: la conducta de una empresa afecta a las demás y viceversa. El producto puede ser homogéneo (acero, cemento) o diferenciado (automóviles, computadoras).</p>
+
+  <p>El caso extremo de oligopolio con solo dos productores se llama <strong>duopolio</strong>.</p>
+
+  <h3>Cooperación y colusión</h3>
+  <p>Las empresas oligopólicas tienen incentivos a cooperar para actuar como un monopolio conjunto:</p>
+  <ul>
+    <li><strong>Cartel (colusión explícita):</strong> acuerdo formal entre empresas para fijar precios o repartir mercados. Es ilegal en la mayoría de los países.</li>
+    <li><strong>Colusión tácita:</strong> coordinación implícita sin acuerdo formal, por ejemplo mediante la fijación de precios de referencia.</li>
+  </ul>
+  <p>Los carteles son inestables: cada miembro tiene incentivos a aumentar su producción por encima de la cuota acordada para ganar más a expensas de los demás.</p>
+
+  <h3>El dilema del prisionero</h3>
+  <p>La situación de los oligopolistas puede modelarse con la teoría de juegos. El <strong>dilema del prisionero</strong> muestra que aun cuando la cooperación sea mutuamente beneficiosa, cada participante tiene incentivos individuales a traicionar al otro.</p>
+
+  <div class="box">
+    <div class="box-title">Ejemplo: Al Capone y Corleone</div>
+    <p>Dos productores (Al Capone y Corleone) deben decidir si producen <strong>alto</strong> o <strong>bajo</strong>. Si ambos producen bajo, actúan como monopolio y obtienen $50 cada uno. Si uno traiciona produciendo alto mientras el otro produce bajo, el traidor gana $70 y el otro $20. Si ambos traicionan, ambos obtienen $30.</p>
+    <p style="margin-top:10px">El equilibrio de Nash (resultado sin comunicación) es que <strong>ambos producen alto</strong> y obtienen $30, aunque ambos estarían mejor con $50 si cooperaran. Este es el dilema: el interés individual lleva a un resultado colectivamente peor.</p>
+  </div>
+
+  <h3>Publicidad en oligopolios</h3>
+  <p>En los mercados oligopólicos con productos diferenciados, la <strong>publicidad</strong> cumple un rol central:</p>
+  <ul>
+    <li>Construye marcas y fideliza consumidores (demanda menos elástica).</li>
+    <li>Opera como barrera a la entrada para nuevas empresas.</li>
+    <li>Es una forma de competencia no vinculada al precio.</li>
+  </ul>
+
+  <table>
+    <thead>
+      <tr><th>Variable</th><th>Competencia perfecta</th><th>Oligopolio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>N. de empresas</td><td>Muchas</td><td>Pocas</td></tr>
+      <tr><td>Tipo de producto</td><td>Homogéneo</td><td>Homo. o diferenciado</td></tr>
+      <tr><td>Publicidad</td><td>Ninguna</td><td>Importante</td></tr>
+      <tr><td>Poder de mercado</td><td>Ninguno</td><td>Importante</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Política frente a los oligopolios</h3>
+  <p>El Estado interviene para promover la competencia: en Argentina, la <strong>CNDC (Comisión Nacional de Defensa de la Competencia)</strong> investiga acuerdos de precios, fusiones y prácticas abusivas. Las herramientas incluyen regulación sectorial, transparencia de precios y fomento de la competencia.</p>
+
+  <!-- ===== COMPETENCIA MONOPOLISTICA ===== -->
+  <h2>Competencia monopolística</h2>
+
+  <p>La <strong>competencia monopolística</strong> combina elementos de competencia perfecta (muchas empresas, libre entrada) con elementos del monopolio (productos diferenciados, cierto poder de fijación de precios).</p>
+
+  <div class="box">
+    <div class="box-title">Características de la competencia monopolística</div>
+    <ul>
+      <li>Gran número de empresas (atomización).</li>
+      <li>Productos diferenciados: cada empresa ofrece una variedad distinta (marca, calidad, ubicación).</li>
+      <li>Cada empresa tiene poder limitado sobre su precio gracias a la diferenciación.</li>
+      <li>Libre entrada y salida a largo plazo.</li>
+    </ul>
+    <p style="margin-top:12px">Ejemplos: restaurantes, peluquerías, cafeterías, indumentaria.</p>
+  </div>
+
+  <h3>Corto plazo en competencia monopolística</h3>
+  <p>En el corto plazo la empresa puede obtener beneficios extraordinarios o pérdidas, al igual que un monopolio: produce donde IM = CM y fija el precio sobre su curva de demanda (decreciente).</p>
+
+  <h3>Largo plazo en competencia monopolística</h3>
+  <p>Si hay beneficios extraordinarios, nuevas empresas entran con productos sustitutos. Esto desplaza la demanda de cada empresa hacia la izquierda hasta que la curva de demanda sea tangente a la curva de CTMe. En ese punto:</p>
+
+  <div class="formula">
+    <span class="label">Equilibrio de largo plazo en competencia monopolística</span>
+    P = CTMe  (beneficio económico = 0)
+    P > CM    (ineficiencia: exceso de capacidad)
+  </div>
+
+  <!-- SVG: Competencia monopolística en largo plazo -->
+  <svg class="diagram" viewBox="0 0 440 300" width="440" height="300" aria-label="Equilibrio de largo plazo en competencia monopolística">
+    <defs>
+      <marker id="ah5b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+    <line x1="50" y1="270" x2="410" y2="270" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5b)"/>
+    <line x1="50" y1="270" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah5b)"/>
+    <text x="418" y="274" font-size="13" fill="#555">q</text>
+    <text x="34" y="15" font-size="13" fill="#555">P</text>
+
+    <!-- Demanda empresa (decreciente) -->
+    <line x1="80" y1="70" x2="370" y2="230" stroke="#2563eb" stroke-width="2"/>
+    <text x="376" y="235" font-size="12" fill="#2563eb" font-weight="600">d</text>
+
+    <!-- IM (mas pronunciada) -->
+    <line x1="80" y1="70" x2="225" y2="270" stroke="#7c3aed" stroke-width="1.8"/>
+    <text x="230" y="268" font-size="12" fill="#7c3aed" font-weight="600">IM</text>
+
+    <!-- CM (creciente) -->
+    <path d="M 80,250 Q 130,190 180,155 Q 240,120 360,80" fill="none" stroke="#16a34a" stroke-width="2"/>
+    <text x="365" y="82" font-size="12" fill="#16a34a" font-weight="600">CM</text>
+
+    <!-- CTMe (U shape, tangente a la demanda) -->
+    <path d="M 80,200 Q 155,110 210,100 Q 265,95 360,110" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <text x="365" y="113" font-size="12" fill="#ef4444" font-weight="600">CTMe</text>
+
+    <!-- Punto optimo IM=CM aprox q*=155, y=168 -->
+    <circle cx="155" cy="168" r="5" fill="#1a1a1a"/>
+    <line x1="155" y1="168" x2="155" y2="270" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="148" y="283" font-size="12" fill="#555">q*</text>
+
+    <!-- Pm: sobre la demanda en x=155 -->
+    <!-- Demanda: desde (80,70) a (370,230): pendiente (230-70)/(370-80)=160/290=0.55, y en x=155: 70+(155-80)*0.55=70+41.25=111.25 -->
+    <circle cx="155" cy="111" r="4" fill="#2563eb"/>
+    <line x1="50" y1="111" x2="155" y2="111" stroke="#888" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="28" y="115" font-size="12" fill="#555">P*</text>
+
+    <!-- Punto tangencia (p=CTMe): marca la tangencia -->
+    <text x="162" y="104" font-size="10" fill="#ef4444" font-style="italic">tangencia</text>
+
+    <!-- qe: escala eficiente (min CTMe) aprox x=240 -->
+    <line x1="240" y1="97" x2="240" y2="270" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="232" y="283" font-size="11" fill="#ef4444">qe</text>
+    <text x="160" y="250" font-size="11" fill="#ef4444" font-style="italic">exceso de capacidad</text>
+    <line x1="162" y1="243" x2="162" y2="270" stroke="#ef4444" stroke-width="1" marker-end="url(#ah5b)"/>
+  </svg>
+
+  <h3>Teorema del exceso de capacidad</h3>
+  <p>En el equilibrio de largo plazo de la competencia monopolística, la empresa produce una cantidad <strong>menor</strong> a la de mínimo costo (escala eficiente). Esta diferencia entre la cantidad de mínimo costo y la cantidad producida es el <strong>exceso de capacidad</strong>. Además, P &gt; CM, lo que implica ineficiencia asignativa.</p>
+
+  <h3>Tabla comparativa: competencia perfecta vs. competencia monopolística</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Comp. perfecta</th>
+        <th>Comp. monopolística</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>N. de empresas</td><td>Muchas</td><td>Muchas</td></tr>
+      <tr><td>Tipo de producto</td><td>Homogéneo</td><td>Diferenciado</td></tr>
+      <tr><td>Publicidad</td><td>No</td><td>Sí</td></tr>
+      <tr><td>Poder de mercado</td><td>Ninguno</td><td>Limitado</td></tr>
+      <tr><td>Curva de demanda empresa</td><td>Horizontal</td><td>Decreciente</td></tr>
+      <tr><td>Beneficio en largo plazo</td><td>0</td><td>0</td></tr>
+      <tr><td>P vs. CM</td><td>P = CM (eficiente)</td><td>P &gt; CM (ineficiente)</td></tr>
+      <tr><td>Exceso de capacidad</td><td>No</td><td>Sí</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== IMPERFECCIONES EN EL LADO DE LA DEMANDA ===== -->
+  <h2>Imperfecciones en el lado de la demanda</h2>
+
+  <p>La competencia imperfecta también puede existir del lado de los compradores:</p>
+  <ul>
+    <li><strong>Monopsonio:</strong> existe un único comprador en el mercado (por ejemplo, en algunas regiones, una sola empresa es el único empleador).</li>
+    <li><strong>Oligopsonio:</strong> hay pocos compradores que tienen poder sobre el precio que pagan a los vendedores.</li>
+  </ul>
+  <p>En ambos casos el comprador tiene poder de mercado y puede adquirir a precios inferiores a los que habría en competencia.</p>
+
+  <!-- ===== QUIZ ===== -->
+  <div class="quiz-section" id="quiz-u5">
+    <h2>Mini-quiz: Unidad 5</h2>
+    <form id="form-u5" novalidate>
+
+      <!-- P1 -->
+      <div class="quiz-q" id="q5-1">
+        <div class="qtext">1. ¿Por qué el ingreso marginal del monopolista es siempre menor que el precio?</div>
+        <label><input type="radio" name="q5-1" value="a"> Porque el monopolista cobra un precio por encima del equilibrio competitivo.</label>
+        <label><input type="radio" name="q5-1" value="b"> Porque al bajar el precio para vender más, pierde ingresos en todas las unidades anteriores (efecto precio negativo).</label>
+        <label><input type="radio" name="q5-1" value="c"> Porque el monopolista siempre tiene costos más altos que las empresas competitivas.</label>
+        <label><input type="radio" name="q5-1" value="d"> Porque el Estado regula el ingreso del monopolista.</label>
+        <div class="feedback" id="fb5-1"></div>
+      </div>
+
+      <!-- P2 -->
+      <div class="quiz-q" id="q5-2">
+        <div class="qtext">2. Un monopolio natural se caracteriza por:</div>
+        <label><input type="radio" name="q5-2" value="a"> Ser propiedad del Estado.</label>
+        <label><input type="radio" name="q5-2" value="b"> Producir bienes de primera necesidad.</label>
+        <label><input type="radio" name="q5-2" value="c"> Tener costos medios decrecientes en el rango de demanda, de modo que una empresa es más eficiente que varias.</label>
+        <label><input type="radio" name="q5-2" value="d"> Cobrar un precio igual al costo marginal.</label>
+        <div class="feedback" id="fb5-2"></div>
+      </div>
+
+      <!-- P3 -->
+      <div class="quiz-q" id="q5-3">
+        <div class="qtext">3. En el equilibrio de largo plazo de la competencia monopolística:</div>
+        <label><input type="radio" name="q5-3" value="a"> Las empresas obtienen beneficios extraordinarios positivos.</label>
+        <label><input type="radio" name="q5-3" value="b"> El beneficio económico es cero y P = CM (igual que en competencia perfecta).</label>
+        <label><input type="radio" name="q5-3" value="c"> El beneficio económico es cero pero P > CM: hay exceso de capacidad.</label>
+        <label><input type="radio" name="q5-3" value="d"> Las empresas producen en la escala eficiente (mínimo CTMe).</label>
+        <div class="feedback" id="fb5-3"></div>
+      </div>
+
+      <!-- P4 -->
+      <div class="quiz-q" id="q5-4">
+        <div class="qtext">4. El dilema del prisionero en oligopolio demuestra que:</div>
+        <label><input type="radio" name="q5-4" value="a"> Las empresas siempre cooperan para maximizar ganancias conjuntas.</label>
+        <label><input type="radio" name="q5-4" value="b"> El equilibrio de Nash conduce al mejor resultado posible para ambas empresas.</label>
+        <label><input type="radio" name="q5-4" value="c"> El interés individual lleva a un resultado donde ambas empresas producen más de lo óptimo conjunto, obteniendo menos que si cooperaran.</label>
+        <label><input type="radio" name="q5-4" value="d"> La colusión siempre es estable porque ninguna empresa tiene incentivos a traicionar.</label>
+        <div class="feedback" id="fb5-4"></div>
+      </div>
+
+      <!-- P5 -->
+      <div class="quiz-q" id="q5-5">
+        <div class="qtext">5. La pérdida irrecuperable de eficiencia del monopolio es:</div>
+        <label><input type="radio" name="q5-5" value="a"> El beneficio extraordinario que obtiene el monopolista.</label>
+        <label><input type="radio" name="q5-5" value="b"> El valor de las transacciones que no ocurren porque el monopolista produce menos que el nivel competitivo, sin que nadie lo capture.</label>
+        <label><input type="radio" name="q5-5" value="c"> El exceso de capacidad instalada en el mercado.</label>
+        <label><input type="radio" name="q5-5" value="d"> Los gastos del Estado en regulación del monopolio.</label>
+        <div class="feedback" id="fb5-5"></div>
+      </div>
+
+      <!-- P6 -->
+      <div class="quiz-q" id="q5-6">
+        <div class="qtext">6. ¿Qué se necesita para que un monopolista pueda aplicar discriminación de precios?</div>
+        <label><input type="radio" name="q5-6" value="a"> Que el gobierno lo autorice expresamente.</label>
+        <label><input type="radio" name="q5-6" value="b"> Que pueda segmentar el mercado y que los compradores no puedan revender el bien entre segmentos.</label>
+        <label><input type="radio" name="q5-6" value="c"> Que el bien no tenga sustitutos en ningún segmento.</label>
+        <label><input type="radio" name="q5-6" value="d"> Que la curva de demanda sea horizontal.</label>
+        <div class="feedback" id="fb5-6"></div>
+      </div>
+
+      <button type="button" class="check-btn" onclick="checkQuizU5()">Verificar respuestas</button>
+      <div class="quiz-result" id="result-u5"></div>
+    </form>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  Economía I · Lic. Marisa Soledad Lagraña · UCES 2026 &nbsp;|&nbsp;
+  <a href="index.html" style="color:#888">Volver al inicio</a>
+</footer>
+
+<script>
+const answersU5 = {
+  'q5-1': { correct: 'b', feedback: {
+    a: 'Incorrecto. Que el precio sea mayor al competitivo no explica por qué IM < P.',
+    b: 'Correcto. Al reducir el precio para vender una unidad más, el efecto precio negativo (pierde en todas las anteriores) supera al efecto cantidad positivo: IM < P.',
+    c: 'Incorrecto. Los costos no determinan la relación entre IM y P.',
+    d: 'Incorrecto. La regulación puede afectar el precio pero no determina la relación IM < P.'
+  }},
+  'q5-2': { correct: 'c', feedback: {
+    a: 'Incorrecto. Monopolio natural no implica propiedad estatal, aunque a veces el Estado lo gestiona.',
+    b: 'Incorrecto. La naturaleza "natural" se refiere a los costos, no al tipo de bien.',
+    c: 'Correcto. Con costos medios siempre decrecientes en el rango relevante, una sola empresa puede abastecer el mercado a menor costo que varias.',
+    d: 'Incorrecto. Cobrar P = CM es la regulación eficiente, no la definición de monopolio natural.'
+  }},
+  'q5-3': { correct: 'c', feedback: {
+    a: 'Incorrecto. En el largo plazo la entrada de competidores elimina los beneficios extraordinarios.',
+    b: 'Incorrecto. La diferenciación hace que P > CM aunque el beneficio sea cero, a diferencia de la competencia perfecta.',
+    c: 'Correcto. La curva de demanda es tangente al CTMe (beneficio = 0) pero el punto de tangencia no es el mínimo del CTMe: hay exceso de capacidad y P > CM.',
+    d: 'Incorrecto. Producir en la escala eficiente (mínimo CTMe) es el resultado de largo plazo de la competencia perfecta, no de la monopolística.'
+  }},
+  'q5-4': { correct: 'c', feedback: {
+    a: 'Incorrecto. El dilema muestra precisamente que la cooperación es inestable.',
+    b: 'Incorrecto. El equilibrio de Nash (ambos producen alto) genera un resultado peor para ambos que la cooperación.',
+    c: 'Correcto. El equilibrio de Nash lleva a que ambos "traicionen" produciendo alto, obteniendo menos que si hubieran cooperado.',
+    d: 'Incorrecto. Siempre hay incentivos a traicionar, por eso los carteles son inestables.'
+  }},
+  'q5-5': { correct: 'b', feedback: {
+    a: 'Incorrecto. El beneficio extraordinario es una transferencia de consumidores al monopolista, no una pérdida neta.',
+    b: 'Correcto. El triángulo de pérdida irrecuperable representa el valor de intercambios que dejan de realizarse por el menor output del monopolio, sin que ningún agente lo capture.',
+    c: 'Incorrecto. El exceso de capacidad es propio de la competencia monopolística, no del monopolio.',
+    d: 'Incorrecto. Los gastos regulatorios son costos del Estado, distintos al concepto de pérdida de eficiencia.'
+  }},
+  'q5-6': { correct: 'b', feedback: {
+    a: 'Incorrecto. No se requiere autorización estatal; basta con la posibilidad práctica de segmentar.',
+    b: 'Correcto. La discriminación requiere: poder segmentar el mercado (identificar grupos con distintas elasticidades) y que los compradores no puedan revender entre segmentos.',
+    c: 'Incorrecto. Puede haber sustitutos en algunos segmentos; lo importante es la segmentación.',
+    d: 'Incorrecto. Curva horizontal implica competencia perfecta, donde no hay poder de mercado para discriminar.'
+  }}
+};
+
+function checkQuizU5() {
+  let correct = 0;
+  const total = Object.keys(answersU5).length;
+
+  for (const [qname, data] of Object.entries(answersU5)) {
+    const selected = document.querySelector(`input[name="${qname}"]:checked`);
+    const fbId = 'fb' + qname.replace('q5-', '5-');
+    const fb = document.getElementById(fbId);
+    if (!selected) {
+      fb.className = 'feedback wrong';
+      fb.textContent = 'Seleccioná una opción.';
+      continue;
+    }
+    const val = selected.value;
+    fb.className = 'feedback ' + (val === data.correct ? 'correct' : 'wrong');
+    fb.textContent = data.feedback[val] || '';
+    if (val === data.correct) correct++;
+  }
+
+  const resultEl = document.getElementById('result-u5');
+  resultEl.style.display = 'block';
+  const pct = Math.round((correct / total) * 100);
+  if (pct === 100) {
+    resultEl.style.background = '#d1fae5'; resultEl.style.color = '#065f46';
+    resultEl.textContent = `Perfecto: ${correct}/${total}. Dominás la unidad.`;
+  } else if (pct >= 60) {
+    resultEl.style.background = '#fef3c7'; resultEl.style.color = '#92400e';
+    resultEl.textContent = `Bien: ${correct}/${total} (${pct}%). Repasá las que fallaste.`;
+  } else {
+    resultEl.style.background = '#fee2e2'; resultEl.style.color = '#991b1b';
+    resultEl.textContent = `${correct}/${total} (${pct}%). Conviene repasar los conceptos.`;
+  }
+}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => null);
+  });
+}
+</script>
+</body>
+</html>

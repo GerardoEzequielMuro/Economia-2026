@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía I - Unidad 3: Conducta del Productor | UCES 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Economía I">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,250,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e5e5;padding:12px 0;
+}
+.nav-inner{
+  max-width:820px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-title{font-weight:600;font-size:15px;white-space:nowrap}
+.nav-links{display:flex;gap:16px;overflow-x:auto;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.nav-links a.active{color:#1a1a1a;font-weight:600}
+
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:32px}
+
+h2{
+  font-size:21px;font-weight:700;margin:52px 0 14px;line-height:1.3;
+  padding-top:22px;border-top:1px solid #e5e5e5;
+}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.unit{
+  text-transform:uppercase;font-size:13px;letter-spacing:.12em;
+  color:#888;margin:60px 0 0;border:none;padding:0;font-weight:600;
+}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px}
+
+p{margin:8px 0;color:#333}
+strong{color:#1a1a1a;font-weight:600}
+ul,ol{margin:8px 0;padding-left:22px;color:#333}
+li{margin:3px 0}
+
+.box{
+  background:#f5f5f5;padding:12px 16px;margin:14px 0;
+  border-left:2px solid #1a1a1a;border-radius:2px;
+}
+.box p:first-child{margin-top:0}.box p:last-child{margin-bottom:0}
+.box .label{
+  font-size:10.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:#666;display:block;margin-bottom:4px;
+}
+
+.formula{
+  font-family:"SF Mono",Consolas,Menlo,monospace;
+  background:#fff;border:1px solid #e5e5e5;padding:10px 14px;
+  margin:10px 0;font-size:14px;border-radius:2px;overflow-x:auto;
+  white-space:nowrap;
+}
+.formula .fk{
+  display:block;font-family:-apple-system,"Segoe UI",sans-serif;
+  font-size:10.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:#666;margin-bottom:4px;
+}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;border:1px solid #e5e5e5;background:#fff}
+th{background:#f5f5f5;text-align:left;padding:8px 10px;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #e5e5e5}
+td{padding:8px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#333}
+tr:last-child td{border-bottom:none}
+
+.graph{background:#fff;border:1px solid #e5e5e5;padding:14px;margin:14px 0;border-radius:2px;text-align:center}
+.graph svg{max-width:100%;height:auto}
+.graph .caption{font-size:12.5px;color:#888;margin-top:8px;font-style:italic}
+
+/* Quiz */
+.quiz{margin:32px 0;background:#fff;border:1px solid #e5e5e5;border-radius:2px;padding:20px 24px}
+.quiz h3{margin-top:0;font-size:15px;letter-spacing:-.01em}
+.q-item{margin:14px 0}
+.q-item p{font-size:14.5px;margin-bottom:6px;color:#1a1a1a;font-weight:500}
+.q-item label{display:block;font-size:13.5px;color:#333;margin:3px 0;cursor:pointer}
+.q-item label input{margin-right:6px}
+.q-feedback{font-size:13px;margin-top:5px;padding:6px 10px;border-radius:2px;display:none}
+.q-feedback.ok{background:#f0f9f4;color:#14532d;border-left:2px solid #16a34a}
+.q-feedback.err{background:#fef2f2;color:#991b1b;border-left:2px solid #ef4444}
+.quiz-btn{
+  margin-top:16px;background:#1a1a1a;color:#fff;border:none;padding:9px 20px;
+  font-size:13.5px;font-weight:600;border-radius:2px;cursor:pointer;
+}
+.quiz-btn:hover{background:#333}
+.quiz-result{margin-top:12px;font-size:14px;font-weight:600;color:#1a1a1a}
+
+/* Ejercicio */
+.ejercicio{background:#fff;border:1px solid #e5e5e5;border-radius:2px;margin:16px 0}
+.ejercicio .ej-head{padding:12px 16px;background:#f5f5f5;border-bottom:1px solid #e5e5e5;font-weight:600;font-size:14.5px}
+.ejercicio .ej-body{padding:14px 16px;font-size:14.5px}
+details{margin-top:10px;border-top:1px dashed #e5e5e5;padding-top:8px}
+details summary{cursor:pointer;font-size:13px;color:#1a1a1a;font-weight:600;padding:6px 10px;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;list-style:none;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▶";font-size:9px;color:#666;transition:transform .2s}
+details[open] summary::before{transform:rotate(90deg)}
+details[open] summary{background:#f0f9f4;border-color:#16a34a;color:#14532d}
+details .sol{padding:12px 14px;margin-top:10px;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;font-size:14px}
+details .sol .step{margin:8px 0;padding:8px 12px;background:#fff;border-left:2px solid #9ca3af;border-radius:2px}
+details .sol .final{margin-top:10px;padding:8px 12px;background:#f0f9f4;border-left:2px solid #16a34a;font-weight:600;color:#14532d}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid #e5e5e5;color:#888;font-size:12.5px;text-align:center}
+
+@media(max-width:640px){
+  body{font-size:15px}
+  .container{padding:80px 18px 60px}
+  .nav-inner{padding:0 16px;gap:10px}
+  .nav-links{gap:10px;font-size:11.5px}
+  h1{font-size:24px}h2{font-size:18px;margin-top:42px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Economía I · U3</div>
+    <div class="nav-links">
+      <a href="index.html">U1-U2</a>
+      <a href="u3.html" class="active">U3</a>
+      <a href="u4.html">U4</a>
+      <a href="u5.html">U5</a>
+      <a href="final.html">Final</a>
+      <a href="practica.html">Práctica</a>
+      <a href="formulas.html">Taller</a>
+      <a href="mapa-mental.html">Mapa</a>
+      <a href="parciales.html">Parciales</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>Unidad 3. Conducta de los Productores</h1>
+<p class="subtitle">UCES 2026 · Lic. Marisa Soledad Lagraña · Resumen del apunte de cátedra</p>
+
+<div class="box">
+<span class="label">Temario U3</span>
+<p>Función de producción · Corto y largo plazo · PT, PML, PMe · Ley de rendimientos decrecientes · Costos: fijos, variables, totales, medios y marginales · Isocuanta e isocosto · Equilibrio del productor · Oferta y sus desplazamientos · Elasticidad de la oferta · Excedente del productor · Maximización de beneficios.</p>
+</div>
+
+
+<h2 class="unit">Producción</h2>
+
+
+<h2 id="u3-1">1. La empresa y la función de producción</h2>
+<p>La empresa tiene como función básica <strong>transformar los factores de producción</strong> (trabajo, capital, materias primas) en bienes y servicios aptos para el consumo o la inversión. La decisión básica que toda empresa debe tomar es <strong>qué cantidad producir</strong> para maximizar su beneficio, definido como la diferencia entre ingresos totales y costos totales.</p>
+
+<div class="box">
+<span class="label">Función de producción</span>
+<p>Especifica la <strong>cantidad máxima de un bien</strong> que puede producirse con una cantidad dada de factores, para un estado dado del conocimiento tecnológico. Con trabajo (L) y capital (K):</p>
+</div>
+
+<div class="formula">
+<span class="fk">Función de producción</span>
+q = F (L, K)
+</div>
+
+<p>La <strong>tecnología productiva</strong> determina la eficiencia con que una empresa convierte factores en producto. Mejores tecnologías implican menores costos y mayor productividad.</p>
+
+
+<h2 id="u3-2">2. Corto y largo plazo</h2>
+
+<table>
+<tr><th>Plazo</th><th>Qué varía</th><th>Qué estudiamos</th></tr>
+<tr><td><strong>Corto plazo</strong></td><td>Un factor varía (trabajo); los demás permanecen fijos (capital, instalaciones)</td><td>Productividad del factor variable</td></tr>
+<tr><td><strong>Largo plazo</strong></td><td>Todos los factores pueden modificarse</td><td>Rendimientos de escala</td></tr>
+</table>
+
+<p>La distinción entre corto y largo plazo se establece <strong>únicamente atendiendo a la existencia o no de factores fijos</strong>. A largo plazo no hay factores fijos: la empresa puede alterar cualquier factor, incluido el capital.</p>
+
+
+<h2 id="u3-3">3. Producto total, marginal y medio</h2>
+<p>El ejemplo del apunte usa una fábrica de helado. Con capital fijo, se analizan los efectos de agregar más trabajadores:</p>
+
+<table>
+<tr><th>Trabajadores (L)</th><th>PT (kg/sem)</th><th>PML (kg/trab.)</th><th>PMe (kg/trab.)</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>55</td><td>55</td><td>55</td></tr>
+<tr><td>2</td><td>142</td><td>87</td><td>71</td></tr>
+<tr><td>3</td><td>250</td><td>108</td><td>83</td></tr>
+<tr><td>4</td><td>381</td><td>131</td><td>95</td></tr>
+<tr><td>5</td><td>500</td><td>119</td><td>100</td></tr>
+<tr><td>6</td><td>580</td><td>80</td><td>97</td></tr>
+<tr><td>7</td><td>653</td><td>73</td><td>93</td></tr>
+<tr><td>8</td><td>695</td><td>42</td><td>87</td></tr>
+<tr><td>9</td><td>720</td><td>25</td><td>80</td></tr>
+<tr><td>10</td><td>720</td><td>0</td><td>72</td></tr>
+</table>
+
+<div class="formula">
+<span class="fk">Producto marginal del trabajo</span>
+PML = ΔPT / ΔL
+</div>
+<div class="formula">
+<span class="fk">Producto medio del trabajo (productividad)</span>
+PMe = PT / L
+</div>
+
+<div class="box">
+<span class="label">Optimo técnico</span>
+<p>El <strong>máximo del PMe</strong> se denomina <strong>óptimo técnico</strong>: es la combinación más eficiente en términos de producción media por unidad de insumo. En el ejemplo ocurre con 5 trabajadores (PMe = 100). Cuando el PML es mayor que el PMe, el PMe es creciente; cuando el PML lo corta por debajo, el PMe alcanza su máximo.</p>
+</div>
+
+<div class="graph">
+<svg viewBox="0 0 480 200" width="480" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Curvas de PT, PML y PMe">
+  <!-- PT curve -->
+  <text x="10" y="18" font-size="11" fill="#666">PT</text>
+  <text x="240" y="18" font-size="11" fill="#666">PML y PMe</text>
+  <!-- Left chart axes -->
+  <line x1="30" y1="170" x2="210" y2="170" stroke="#ccc" stroke-width="1"/>
+  <line x1="30" y1="20" x2="30" y2="170" stroke="#ccc" stroke-width="1"/>
+  <!-- PT curve (S-shape) -->
+  <path d="M30,170 C50,165 70,140 100,100 S140,50 160,35 S190,28 210,28" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="165" y="26" font-size="10" fill="#1a1a1a">PT</text>
+  <text x="30" y="185" font-size="10" fill="#888">0</text>
+  <text x="200" y="185" font-size="10" fill="#888">L</text>
+  <!-- Right chart axes -->
+  <line x1="250" y1="170" x2="450" y2="170" stroke="#ccc" stroke-width="1"/>
+  <line x1="250" y1="20" x2="250" y2="170" stroke="#ccc" stroke-width="1"/>
+  <!-- PML curve (inverted U) -->
+  <path d="M250,160 C270,130 295,70 320,50 S360,65 400,110 S430,145 450,160" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- PMe curve (less steep inverted U) -->
+  <path d="M250,165 C270,145 295,95 330,75 S370,80 410,110 S435,140 450,155" fill="none" stroke="#666" stroke-width="2"/>
+  <text x="395" y="100" font-size="10" fill="#1a1a1a">PML</text>
+  <text x="420" y="125" font-size="10" fill="#666">PMe</text>
+  <!-- Optimo tecnico marker -->
+  <line x1="330" y1="75" x2="330" y2="170" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="316" y="167" font-size="9" fill="#16a34a">Opt. tec.</text>
+  <text x="250" y="185" font-size="10" fill="#888">0</text>
+  <text x="440" y="185" font-size="10" fill="#888">L</text>
+</svg>
+<div class="caption">Izquierda: PT en forma de S. Derecha: PML (trazos) e PMe (gris). El óptimo técnico es donde PML corta PMe en su máximo.</div>
+</div>
+
+
+<h2 id="u3-4">4. Ley de los rendimientos decrecientes</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>El <strong>producto marginal de un factor variable disminuye</strong>, traspasado un cierto nivel, al incrementarse la cantidad empleada de ese factor, permaneciendo todos los demás factores constantes.</p>
+</div>
+<p>En el ejemplo, hasta el cuarto trabajador el PML crece (los nuevos trabajadores agregan cada vez más porque la planta no estaba aprovechada). A partir del quinto, cada trabajador adicional aporta menos kilos porque hay menos capital disponible por persona. Con el décimo trabajador, el PML llega a cero: la planta está en su máximo técnico.</p>
+
+
+<h2 id="u3-5">5. Rendimientos de escala (largo plazo)</h2>
+<p>Cuando todos los factores varían proporcionalmente, los resultados se clasifican en tres tipos:</p>
+
+<table>
+<tr><th>Tipo</th><th>Qué ocurre</th><th>Ejemplo</th></tr>
+<tr><td><strong>Crecientes</strong></td><td>Al duplicar factores, la producción más que se duplica</td><td>Ensamble de autos con gran planta: economías de escala</td></tr>
+<tr><td><strong>Constantes</strong></td><td>Al duplicar factores, la producción se duplica exactamente</td><td>Muchas actividades agrícolas en condiciones ideales</td></tr>
+<tr><td><strong>Decrecientes</strong></td><td>Al duplicar factores, la producción aumenta menos del doble</td><td>Empresa muy grande con problemas de coordinación</td></tr>
+</table>
+
+<div class="box">
+<p>Los rendimientos de escala crecientes generan <strong>economías de escala</strong>: el costo unitario baja al crecer la producción. Son la base de los monopolios naturales (agua, gas, electricidad).</p>
+</div>
+
+
+<h2 class="unit">Costos</h2>
+
+
+<h2 id="u3-6">6. Clasificación de costos</h2>
+
+<h3>Costos explícitos e implícitos</h3>
+<ul>
+  <li><strong>Costos explícitos (contables):</strong> desembolsos reales de dinero (salarios, alquiler, materias primas).</li>
+  <li><strong>Costos implícitos:</strong> costos de oportunidad de los recursos propios de la empresa (el alquiler que se podría cobrar por el local propio, el salario que se resigna por trabajar en el negocio propio).</li>
+</ul>
+
+<div class="box">
+<span class="label">Ejemplo del apunte: heladería</span>
+<p>El fabricante paga $10.000 en materias primas y sueldos (costo explícito). Renuncia a $5.000 de alquiler por el local propio y a $2.000 por no trabajar como electricista. Costos implícitos: $7.000.</p>
+</div>
+
+<div class="formula">
+<span class="fk">Costo económico</span>
+Costo económico = Costos explícitos + Costos implícitos = $10.000 + $7.000 = $17.000
+</div>
+
+<h3>Costos a corto plazo</h3>
+
+<div class="formula">
+<span class="fk">Costo total</span>
+CT = CF + CV
+</div>
+<div class="formula">
+<span class="fk">Costo marginal</span>
+CM = ΔCT / Δq
+</div>
+<div class="formula">
+<span class="fk">Costos medios</span>
+CFMe = CF / q     CVMe = CV / q     CTMe = CT / q = CFMe + CVMe
+</div>
+
+<table>
+<tr><th>q</th><th>CF</th><th>CV</th><th>CT</th><th>CM</th><th>CFMe</th><th>CVMe</th><th>CTMe</th></tr>
+<tr><td>0</td><td>45</td><td>0</td><td>45,0</td><td>-</td><td>inf.</td><td>indef.</td><td>inf.</td></tr>
+<tr><td>1</td><td>45</td><td>22,5</td><td>67,5</td><td>22,5</td><td>45,0</td><td>22,5</td><td>67,5</td></tr>
+<tr><td>2</td><td>45</td><td>35,0</td><td>80,0</td><td>12,5</td><td>22,5</td><td>17,5</td><td>40,0</td></tr>
+<tr><td>4</td><td>45</td><td>52,5</td><td>97,5</td><td>7,5</td><td>11,2</td><td>13,1</td><td>24,3</td></tr>
+<tr><td>7</td><td>45</td><td>93,7</td><td>138,7</td><td>16,2</td><td>6,4</td><td>13,3</td><td>19,8</td></tr>
+<tr><td>10</td><td>45</td><td>177,5</td><td>222,5</td><td>33,7</td><td>4,5</td><td>17,7</td><td>22,2</td></tr>
+</table>
+
+<div class="box">
+<span class="label">Escala eficiente</span>
+<p>El <strong>mínimo del CTMe</strong> se denomina <strong>escala eficiente</strong> de la empresa (o escala mínima eficiente). En el ejemplo, el CTMe mínimo es 19,8 para q=7. Producir más o menos eleva el costo unitario.</p>
+</div>
+
+
+<h2 id="u3-7">7. Curvas de costo: forma de U</h2>
+
+<div class="graph">
+<svg viewBox="0 0 420 200" width="420" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Curvas de costos CM CTMe CVMe">
+  <line x1="30" y1="170" x2="400" y2="170" stroke="#ccc" stroke-width="1"/>
+  <line x1="30" y1="10" x2="30" y2="170" stroke="#ccc" stroke-width="1"/>
+  <!-- CFMe: hyperbola -->
+  <path d="M50,40 Q80,80 120,110 T250,140 T380,150" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="355" y="148" font-size="10" fill="#9ca3af">CFMe</text>
+  <!-- CVMe: U-shape -->
+  <path d="M50,155 Q100,100 170,80 S250,80 300,95 S360,125 390,155" fill="none" stroke="#666" stroke-width="2"/>
+  <text x="355" y="130" font-size="10" fill="#666">CVMe</text>
+  <!-- CTMe: U-shape higher -->
+  <path d="M50,130 Q100,80 170,65 S250,65 300,80 S360,105 390,135" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="355" y="88" font-size="10" fill="#1a1a1a">CTMe</text>
+  <!-- CM: U-shape steeper -->
+  <path d="M50,160 Q90,80 140,50 S180,40 200,45 S240,65 300,110 S360,145 390,165" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <text x="290" y="95" font-size="10" fill="#ef4444">CM</text>
+  <!-- CM crosses CTMe at its min -->
+  <line x1="190" y1="45" x2="190" y2="170" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="178" y="168" font-size="9" fill="#ef4444">min CTMe</text>
+  <text x="30" y="185" font-size="10" fill="#888">0</text>
+  <text x="390" y="185" font-size="10" fill="#888">q</text>
+  <text x="8" y="10" font-size="10" fill="#888">$</text>
+</svg>
+<div class="caption">La curva CM (rojo) corta al CTMe y CVMe en sus respectivos mínimos. La forma de U se explica por la ley de rendimientos decrecientes.</div>
+</div>
+
+<div class="box">
+<span class="label">Relación CM y CMe</span>
+<p>Cuando el CM es <strong>menor</strong> que el CTMe, el CTMe es decreciente. Cuando el CM es <strong>mayor</strong>, el CTMe es creciente. Por eso el CM corta al CTMe en su <strong>mínimo</strong>. Condición de costo mínimo: <strong>CM = CTMe</strong>.</p>
+</div>
+
+
+<h2 id="u3-8">8. Costos a largo plazo y rendimientos de escala</h2>
+<p>A largo plazo, la curva de CMeL tiene forma de U pero más abierta que la de corto plazo, porque la empresa puede ajustar todos los factores:</p>
+<ul>
+  <li><strong>Economías de escala (crecientes):</strong> CMeL decreciente. El producto crece más rápido que los factores.</li>
+  <li><strong>Deseconomías de escala (decrecientes):</strong> CMeL creciente. El producto crece menos que los factores.</li>
+  <li><strong>Rendimientos constantes:</strong> CMeL plano. Producto y factores crecen en la misma proporción.</li>
+</ul>
+
+
+<h2 id="u3-9">9. Isocuanta e isocosto: equilibrio del productor</h2>
+
+<h3>Curva isocuanta</h3>
+<div class="box">
+<span class="label">Definición</span>
+<p>Muestra las <strong>diversas combinaciones de dos factores</strong> (trabajo L y capital K) que producen el mismo nivel de output. Es el análogo del productor a la curva de indiferencia del consumidor.</p>
+</div>
+
+<p><strong>Propiedades:</strong> convexa al origen, pendiente negativa, no se cortan entre sí, más alejada del origen implica mayor producción.</p>
+
+<div class="formula">
+<span class="fk">Pendiente de la isocuanta (TMST)</span>
+TMST = PML / PMK = -(ΔK / ΔL)
+</div>
+
+<h3>Línea isocosto</h3>
+<p>Muestra todas las combinaciones de L y K que la empresa puede comprar con un presupuesto dado, dados los precios w (salario) y r (costo del capital):</p>
+
+<div class="formula">
+<span class="fk">Ecuación del isocosto</span>
+CT = wL + rK   →   K = CT/r − (w/r)·L
+</div>
+
+<p>La pendiente del isocosto es <strong>−w/r</strong> (razón de precios de los factores). Las isocostos son paralelas porque los precios no cambian.</p>
+
+<h3>Minimización de costos: punto de tangencia</h3>
+<div class="box">
+<span class="label">Condición de equilibrio del productor</span>
+<p>La empresa minimiza costos donde la isocuanta es tangente al isocosto. En ese punto las pendientes se igualan:</p>
+</div>
+
+<div class="formula">
+<span class="fk">Condición de equilibrio</span>
+w / r = PML / PMK   equivalente a   PML / w = PMK / r
+</div>
+
+<p>Significado: el <strong>último peso gastado en trabajo produce lo mismo que el último peso gastado en capital</strong>. Si no fuera así, convendría reasignar factores.</p>
+
+<div class="graph">
+<svg viewBox="0 0 340 230" width="340" height="230" xmlns="http://www.w3.org/2000/svg" aria-label="Isocuanta e isocosto">
+  <line x1="30" y1="200" x2="310" y2="200" stroke="#ccc" stroke-width="1"/>
+  <line x1="30" y1="10" x2="30" y2="200" stroke="#ccc" stroke-width="1"/>
+  <!-- isocuanta -->
+  <path d="M50,190 Q80,120 120,80 S200,50 290,40" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="262" y="36" font-size="11" fill="#1a1a1a">q₀</text>
+  <!-- isocosto bajo -->
+  <line x1="50" y1="190" x2="200" y2="30" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- isocosto optimo -->
+  <line x1="30" y1="175" x2="270" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="255" y="12" font-size="10" fill="#1a1a1a">Isocosto opt.</text>
+  <!-- tangency point -->
+  <circle cx="130" cy="80" r="5" fill="#ef4444"/>
+  <text x="138" y="78" font-size="11" fill="#ef4444">E*</text>
+  <line x1="130" y1="80" x2="130" y2="200" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="30" y1="80" x2="130" y2="80" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="133" y="198" font-size="10" fill="#ef4444">L*</text>
+  <text x="6" y="83" font-size="10" fill="#ef4444">K*</text>
+  <text x="30" y="215" font-size="10" fill="#888">0</text>
+  <text x="302" y="215" font-size="10" fill="#888">L (trabajo)</text>
+  <text x="5" y="12" font-size="10" fill="#888">K</text>
+</svg>
+<div class="caption">E* es el punto óptimo: la isocuanta q₀ es tangente al isocosto de menor costo posible. En ese punto PML/w = PMK/r.</div>
+</div>
+
+
+<h2 class="unit">Oferta</h2>
+
+
+<h2 id="u3-10">10. La oferta</h2>
+<div class="box">
+<span class="label">Distinción clave</span>
+<p><strong>Ofrecer</strong> es tener la intención de vender. <strong>Vender</strong> es hacerlo realmente. La oferta refleja las intenciones de los productores.</p>
+</div>
+
+<p><strong>Ley de la oferta:</strong> relación <strong>directa</strong> entre precio y cantidad ofrecida. Cuanto mayor es el precio, mayor es el beneficio potencial y mayor la cantidad que los productores desean ofrecer.</p>
+
+<p>La <strong>curva de oferta del mercado</strong> se obtiene sumando horizontalmente las curvas de oferta individuales de todos los productores.</p>
+
+<div class="formula">
+<span class="fk">Función de oferta</span>
+Q<sub>A</sub> = O (P<sub>A</sub>, P<sub>B</sub>, r, z, H)
+</div>
+<ul>
+  <li><strong>P<sub>A</sub>:</strong> precio del bien A.</li>
+  <li><strong>P<sub>B</sub>:</strong> precios de bienes relacionados.</li>
+  <li><strong>r:</strong> precios de los factores productivos.</li>
+  <li><strong>z:</strong> tecnología.</li>
+  <li><strong>H:</strong> número de empresas oferentes.</li>
+</ul>
+
+<h3>Movimiento vs. desplazamiento de la curva de oferta</h3>
+<table>
+<tr><th>Cambio</th><th>Efecto</th></tr>
+<tr><td>Varía el precio del propio bien</td><td>Movimiento a lo largo de la curva de oferta</td></tr>
+<tr><td>Varía el precio de los factores, la tecnología o el número de empresas</td><td>Desplazamiento de toda la curva de oferta</td></tr>
+</table>
+
+<table>
+<tr><th>Factor</th><th>Dirección del desplazamiento</th></tr>
+<tr><td>Bajan los precios de los factores (ej. salarios)</td><td>Derecha (aumenta oferta)</td></tr>
+<tr><td>Mejora la tecnología</td><td>Derecha (aumenta oferta)</td></tr>
+<tr><td>Aumenta el número de empresas</td><td>Derecha (aumenta oferta)</td></tr>
+<tr><td>Sube el precio de un bien alternativo (sustituto en producción)</td><td>Izquierda (disminuye oferta de este bien)</td></tr>
+</table>
+
+
+<h2 id="u3-11">11. Excedente del productor</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>Ganancia adicional que obtiene un productor cuando el precio de mercado es <strong>superior al costo mínimo que estaba dispuesto a aceptar</strong>. Gráficamente: área por encima de la curva de oferta y por debajo del precio de mercado.</p>
+</div>
+
+<div class="formula">
+<span class="fk">Excedente del productor</span>
+Excedente = Precio de mercado - Costo mínimo aceptable
+</div>
+
+<p>Ejemplo: si el productor vendería por $50 pero el mercado paga $80, el excedente es $80 - $50 = $30. Si el precio de mercado cae por debajo del costo mínimo, el productor no participa en el mercado.</p>
+
+
+<h2 id="u3-12">12. Elasticidad de la oferta</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>Variación porcentual de la cantidad ofrecida cuando varía el precio en 1%, manteniendo constantes los demás factores. Siempre es positiva (la curva de oferta tiene pendiente positiva).</p>
+</div>
+
+<div class="formula">
+<span class="fk">Elasticidad de la oferta</span>
+E<sub>O</sub> = %ΔQ ofrecida / %ΔP
+</div>
+
+<table>
+<tr><th>Valor</th><th>Tipo</th><th>Ejemplo</th></tr>
+<tr><td>E<sub>O</sub> = 0</td><td>Perfectamente inelástica (vertical)</td><td>Departamentos frente al mar</td></tr>
+<tr><td>0 &lt; E<sub>O</sub> &lt; 1</td><td>Inelástica</td><td>Bienes con producción difícil de ampliar</td></tr>
+<tr><td>E<sub>O</sub> = 1</td><td>Elasticidad unitaria</td><td>Caso teórico</td></tr>
+<tr><td>E<sub>O</sub> &gt; 1</td><td>Elástica</td><td>Motos, electrodomésticos</td></tr>
+<tr><td>E<sub>O</sub> = ∞</td><td>Perfectamente elástica (horizontal)</td><td>Commodities a largo plazo</td></tr>
+</table>
+
+<p><strong>Determinante clave:</strong> el plazo. A largo plazo la oferta es más elástica porque las empresas pueden ampliar instalaciones. A corto plazo es más rígida.</p>
+
+
+<h2 id="u3-13">13. Maximización de beneficios</h2>
+<div class="formula">
+<span class="fk">Beneficio</span>
+B = IT - CT   donde   IT = P × q
+</div>
+
+<p>La empresa maximiza beneficios donde <strong>el ingreso marginal iguala al costo marginal</strong>:</p>
+
+<div class="formula">
+<span class="fk">Condición de maximización</span>
+Ingreso marginal = Costo marginal
+</div>
+
+<h3>Tres situaciones según el resultado</h3>
+<table>
+<tr><th>Caso</th><th>Condición</th><th>Significado</th></tr>
+<tr><td><strong>Beneficio normal (nulo)</strong></td><td>IT = CT, equivalente a P = CTMe</td><td>Los recursos obtienen lo mismo que en su mejor alternativa</td></tr>
+<tr><td><strong>Beneficio extraordinario</strong></td><td>IT &gt; CT, equivalente a P &gt; CTMe</td><td>Los recursos rinden más que en su mejor alternativa</td></tr>
+<tr><td><strong>Pérdida</strong></td><td>IT &lt; CT, equivalente a P &lt; CTMe</td><td>Puede convenir producir si P ≥ CVMe (cubre costos variables)</td></tr>
+</table>
+
+<div class="box">
+<span class="label">Punto de equilibrio (break-even)</span>
+<p>La <strong>cantidad de equilibrio</strong> (Qe) es aquella para la que los ingresos cubren exactamente todos los costos (B = 0):</p>
+</div>
+
+<div class="formula">
+<span class="fk">Cantidad de equilibrio (punto de nivelación)</span>
+Qe = CF / (P - CVu)
+</div>
+
+<p>Ejemplo: CF = $1.000, P = $20, CVu = $10. Qe = 1000 / (20-10) = 100 unidades. La empresa debe vender al menos 100 unidades para no tener pérdidas.</p>
+
+<h3>Decisión de producir o cerrar (corto plazo)</h3>
+<ul>
+  <li><strong>P &geq; CVMe:</strong> conviene producir (aunque haya pérdidas, cubren parte de los costos fijos).</li>
+  <li><strong>P = CVMe:</strong> indiferente producir o cerrar.</li>
+  <li><strong>P &lt; CVMe:</strong> conviene cerrar (las pérdidas son mayores que los costos fijos).</li>
+</ul>
+<p>Los costos fijos son un <strong>costo hundido</strong>: se pagan independientemente de si se produce o no, por lo que no son relevantes para la decisión a corto plazo.</p>
+
+
+<!-- QUIZ -->
+<div class="quiz" id="quiz-u3">
+<h3>Mini-quiz Unidad 3</h3>
+
+<div class="q-item" id="q1">
+<p>1. La ley de rendimientos decrecientes establece que el PML disminuye cuando se agrega más factor variable, manteniendo el capital fijo. (V/F)</p>
+<label><input type="radio" name="q1" value="V"> Verdadero</label>
+<label><input type="radio" name="q1" value="F"> Falso</label>
+<div class="q-feedback" id="fb1"></div>
+</div>
+
+<div class="q-item" id="q2">
+<p>2. El costo económico incluye solo los costos explícitos (los desembolsos reales de dinero). (V/F)</p>
+<label><input type="radio" name="q2" value="V"> Verdadero</label>
+<label><input type="radio" name="q2" value="F"> Falso</label>
+<div class="q-feedback" id="fb2"></div>
+</div>
+
+<div class="q-item" id="q3">
+<p>3. El punto de tangencia entre la isocuanta y el isocosto es aquel donde la empresa produce el nivel deseado al menor costo posible. (V/F)</p>
+<label><input type="radio" name="q3" value="V"> Verdadero</label>
+<label><input type="radio" name="q3" value="F"> Falso</label>
+<div class="q-feedback" id="fb3"></div>
+</div>
+
+<div class="q-item" id="q4">
+<p>4. Si una empresa tiene pérdidas (IT &lt; CT) siempre debe cerrar en el corto plazo. (V/F)</p>
+<label><input type="radio" name="q4" value="V"> Verdadero</label>
+<label><input type="radio" name="q4" value="F"> Falso</label>
+<div class="q-feedback" id="fb4"></div>
+</div>
+
+<div class="q-item" id="q5">
+<p>5. ¿Cuál es la condición para maximizar beneficios?</p>
+<label><input type="radio" name="q5" value="a"> a) P = CTMe</label>
+<label><input type="radio" name="q5" value="b"> b) IM = CM</label>
+<label><input type="radio" name="q5" value="c"> c) IT &gt; CT</label>
+<label><input type="radio" name="q5" value="d"> d) PML = PMK</label>
+<div class="q-feedback" id="fb5"></div>
+</div>
+
+<div class="q-item" id="q6">
+<p>6. La curva de oferta de la empresa a corto plazo coincide con el tramo de la curva de CM que está por encima del mínimo del CVMe. (V/F)</p>
+<label><input type="radio" name="q6" value="V"> Verdadero</label>
+<label><input type="radio" name="q6" value="F"> Falso</label>
+<div class="q-feedback" id="fb6"></div>
+</div>
+
+<button class="quiz-btn" onclick="checkQuizU3()">Verificar respuestas</button>
+<div class="quiz-result" id="res-u3"></div>
+</div>
+
+
+<!-- EJERCICIOS -->
+<h2 id="u3-ej">Ejercicios numéricos</h2>
+
+<div class="ejercicio">
+<div class="ej-head">Ejercicio 1. Punto de equilibrio y decisión de producción</div>
+<div class="ej-body">
+<p>Una empresa tiene costos fijos de $2.400, costo variable unitario de $15 y vende a $25 por unidad.</p>
+<p><strong>a)</strong> Calcular la cantidad de equilibrio (Qe). <strong>b)</strong> Si el precio cae a $18, ¿conviene producir?</p>
+<details>
+<summary>Ver solución</summary>
+<div class="sol">
+<div class="step"><strong>a) Qe = CF / (P - CVu) = 2.400 / (25 - 15) = 2.400 / 10 = 240 unidades.</strong> La empresa debe vender al menos 240 unidades para cubrir todos sus costos.</div>
+<div class="step"><strong>b) Si P = $18:</strong> comparar con CVu = $15. Como P ($18) &gt; CVMe ($15), el precio cubre los costos variables y parte de los fijos. Conviene producir en el corto plazo porque cerrando se pierden los $2.400 de costos fijos, mientras que produciendo se pierde menos (el margen de $3 por unidad ayuda a cubrir parte de los CF).</div>
+<div class="final">Respuesta b: Conviene producir porque P &gt; CVu. El nuevo Qe sería 2400 / (18-15) = 800 unidades.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ejercicio">
+<div class="ej-head">Ejercicio 2. Costo económico vs. beneficio contable</div>
+<div class="ej-body">
+<p>Paula tiene una peluquería. Paga $8.000 en alquiler, $12.000 en sueldos y $5.000 en insumos. Usa sus ahorros propios invertidos que le rendirían $3.000 en un banco y resigna un trabajo en relación de dependencia que le pagaría $10.000 mensuales. Sus ingresos son $40.000.</p>
+<p>Calcular: beneficio contable, costos implícitos, costo económico y beneficio económico.</p>
+<details>
+<summary>Ver solución</summary>
+<div class="sol">
+<div class="step"><strong>Costos explícitos:</strong> $8.000 + $12.000 + $5.000 = $25.000</div>
+<div class="step"><strong>Beneficio contable:</strong> IT - Costos explícitos = $40.000 - $25.000 = $15.000</div>
+<div class="step"><strong>Costos implícitos:</strong> $3.000 (interés resignado) + $10.000 (salario resignado) = $13.000</div>
+<div class="step"><strong>Costo económico:</strong> $25.000 + $13.000 = $38.000</div>
+<div class="final">Beneficio económico = $40.000 - $38.000 = $2.000. Paula tiene beneficio contable positivo ($15.000) pero desde el punto de vista económico apenas gana $2.000 más que en su mejor alternativa.</div>
+</div>
+</details>
+</div>
+</div>
+
+
+<footer>
+Unidad 3 · Fundamentos de Economía I · UCES 2026 · Lic. Marisa Soledad Lagraña
+</footer>
+
+</div>
+
+<script>
+const answersU3 = {
+  q1: {correct:'V', ok:'Correcto. La ley de rendimientos decrecientes afecta al producto marginal del factor variable cuando el capital está fijo.', err:'Incorrecto. La ley establece exactamente eso: el PML del factor variable disminuye a partir de cierto nivel.'},
+  q2: {correct:'F', ok:'', err:'Falso. El costo económico incluye costos explícitos MAS costos implícitos (costos de oportunidad de los recursos propios). El que solo incluye costos explícitos es el costo contable.'},
+  q3: {correct:'V', ok:'Correcto. El punto de tangencia isocuanta-isocosto define la combinación de factores eficiente en términos económicos.', err:''},
+  q4: {correct:'F', ok:'', err:'Falso. Si P &gt;= CVMe, aunque haya pérdidas conviene producir porque se cubren los costos variables y parte de los fijos. Solo se cierra si P &lt; CVMe.'},
+  q5: {correct:'b', ok:'Correcto. La condición de maximización es IM = CM. En competencia perfecta, como IM = P, se simplifica a P = CM.', err:'Incorrecto. La condición correcta es IM = CM (ingreso marginal igual a costo marginal).'},
+  q6: {correct:'V', ok:'Correcto. La curva de oferta a corto plazo es el tramo creciente del CM por encima del mínimo del CVMe (punto de cierre).', err:''}
+};
+
+function checkQuizU3(){
+  let score=0, total=Object.keys(answersU3).length;
+  for(const [id,data] of Object.entries(answersU3)){
+    const sel=document.querySelector(`input[name="${id}"]:checked`);
+    const fb=document.getElementById('fb'+id.slice(1));
+    fb.style.display='block';
+    if(sel&&sel.value===data.correct){
+      score++;
+      fb.className='q-feedback ok';
+      fb.textContent=data.ok||'Correcto.';
+    } else {
+      fb.className='q-feedback err';
+      fb.textContent=data.err||'Incorrecto. La respuesta correcta es: '+data.correct+'.';
+    }
+  }
+  const res=document.getElementById('res-u3');
+  res.textContent=`Resultado: ${score}/${total}. ${score===total?'Perfecto.':score>=total*0.7?'Muy bien, repasá los que fallaste.':'Repasá la unidad antes del parcial.'}`;
+}
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
+}
+</script>
+</body>
+</html>

@@ -1,12 +1,16 @@
 // Service Worker - Economía I Parcial 1
 // Permite usar toda la pagina sin internet despues de la primera visita.
 
-const CACHE = 'economia-i-v3';
+const CACHE = 'economia-i-v4';
 
 // Rutas relativas al scope del SW (la raiz del sitio)
 const ASSETS = [
   './',
   './index.html',
+  './u3.html',
+  './u4.html',
+  './u5.html',
+  './final.html',
   './parciales.html',
   './mapa-mental.html',
   './formulas.html',

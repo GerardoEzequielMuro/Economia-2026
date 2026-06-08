@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía I - Unidad 4: Equilibrio de Mercado y Competencia Perfecta | UCES 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Economía I">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,250,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e5e5;padding:12px 0;
+}
+.nav-inner{
+  max-width:820px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-title{font-weight:600;font-size:15px;white-space:nowrap}
+.nav-links{display:flex;gap:16px;overflow-x:auto;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.nav-links a.active{color:#1a1a1a;font-weight:600}
+
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:32px}
+
+h2{
+  font-size:21px;font-weight:700;margin:52px 0 14px;line-height:1.3;
+  padding-top:22px;border-top:1px solid #e5e5e5;
+}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.unit{
+  text-transform:uppercase;font-size:13px;letter-spacing:.12em;
+  color:#888;margin:60px 0 0;border:none;padding:0;font-weight:600;
+}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px}
+
+p{margin-bottom:12px}
+ul,ol{margin:0 0 14px 20px}
+li{margin-bottom:5px}
+
+.formula{
+  background:#1a1a1a;color:#fafafa;
+  border-radius:8px;padding:16px 20px;
+  font-family:"SF Mono","Fira Mono","Consolas",monospace;
+  font-size:14.5px;line-height:1.6;margin:18px 0;overflow-x:auto;
+}
+.formula .label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#888;display:block;margin-bottom:6px;font-family:inherit}
+
+.big-formula{
+  background:#1a1a1a;color:#e8f4fd;border-radius:10px;
+  padding:20px 24px;margin:20px 0;overflow-x:auto;
+}
+.big-formula .eq{font-size:22px;font-weight:700;letter-spacing:.02em;font-family:"SF Mono","Fira Mono","Consolas",monospace}
+.big-formula .label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#6b9cbe;display:block;margin-bottom:8px}
+
+.vars{margin:14px 0 0;padding:0;list-style:none}
+.vars li{font-size:13.5px;color:#ccc;padding:3px 0;border-bottom:1px solid #2a2a2a}
+.vars li:last-child{border-bottom:none}
+.vars span{color:#fff;font-weight:600;min-width:50px;display:inline-block}
+
+.box{
+  border:1px solid #e5e5e5;border-radius:8px;padding:18px 20px;
+  margin:20px 0;background:#fff;
+}
+.box-title{font-weight:700;font-size:14px;text-transform:uppercase;
+  letter-spacing:.08em;color:#555;margin-bottom:12px}
+
+table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}
+th{background:#1a1a1a;color:#fafafa;padding:9px 12px;text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td{padding:8px 12px;border-bottom:1px solid #e5e5e5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#f5f5f5}
+
+.tag{
+  display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;
+  font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-right:4px;
+}
+.tag-green{background:#d1fae5;color:#065f46}
+.tag-red{background:#fee2e2;color:#991b1b}
+.tag-yellow{background:#fef3c7;color:#92400e}
+.tag-blue{background:#dbeafe;color:#1e40af}
+
+svg.diagram{display:block;margin:22px auto;max-width:100%}
+
+.exercises{margin:28px 0}
+.ex{border:1px solid #e5e5e5;border-radius:8px;margin-bottom:14px;overflow:hidden}
+.ex summary{
+  padding:14px 18px;font-weight:600;font-size:14.5px;cursor:pointer;
+  background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;
+}
+.ex summary::-webkit-details-marker{display:none}
+.ex summary::after{content:"▸";transition:transform .2s;color:#888}
+.ex[open] summary::after{transform:rotate(90deg)}
+.ex .body{padding:18px 20px;background:#fafafa;border-top:1px solid #e5e5e5}
+
+.worked{margin:14px 0}
+.worked .step{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:10px 0;border-bottom:1px solid #e5e5e5;font-size:14.5px;
+}
+.worked .step:last-child{border-bottom:none}
+.worked .step .n{
+  min-width:28px;height:28px;background:#1a1a1a;color:#fafafa;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.worked .step .t{color:#1a1a1a}
+
+.quiz-section{
+  background:#fff;border:1px solid #e5e5e5;border-radius:10px;
+  padding:26px 28px;margin:48px 0 32px;
+}
+.quiz-section h2{
+  border-top:none;padding-top:0;margin-top:0;margin-bottom:18px;font-size:19px;
+}
+.quiz-q{margin-bottom:22px}
+.quiz-q .qtext{font-weight:600;font-size:15px;margin-bottom:10px;line-height:1.45}
+.quiz-q label{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:14.5px;cursor:pointer}
+.quiz-q input[type=radio]{margin-top:4px;flex-shrink:0}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:6px;font-size:14px;display:none}
+.feedback.correct{background:#d1fae5;color:#065f46;display:block}
+.feedback.wrong{background:#fee2e2;color:#991b1b;display:block}
+.check-btn{
+  margin-top:8px;padding:12px 28px;background:#1a1a1a;color:#fafafa;
+  border:none;border-radius:7px;font-size:15px;font-weight:600;cursor:pointer;
+}
+.check-btn:hover{background:#333}
+.quiz-result{
+  margin-top:18px;padding:14px 18px;border-radius:8px;font-size:15px;
+  font-weight:600;text-align:center;display:none;
+}
+
+footer{margin-top:80px;padding:28px 0;border-top:1px solid #e5e5e5;
+  font-size:13px;color:#888;text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Economía I</div>
+    <div class="nav-links">
+      <a href="index.html">U1-U2</a>
+      <a href="u3.html">U3</a>
+      <a href="u4.html" class="active">U4</a>
+      <a href="u5.html">U5</a>
+      <a href="final.html">Final</a>
+      <a href="practica.html">Práctica</a>
+      <a href="formulas.html">Taller</a>
+      <a href="mapa-mental.html">Mapa</a>
+      <a href="parciales.html">Parciales</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p class="unit">Unidad 4</p>
+  <h1>Equilibrio de Mercado y Competencia Perfecta</h1>
+  <p class="subtitle">Fundamentos de Economía I · Lic. Marisa Soledad Lagraña · UCES 2026</p>
+
+  <!-- ===== EQUILIBRIO DE MERCADO ===== -->
+  <h2>Equilibrio de mercado</h2>
+
+  <p>El mercado alcanza el <strong>equilibrio</strong> cuando la cantidad ofrecida iguala a la cantidad demandada. Gráficamente, es el punto donde las curvas de oferta y demanda se intersectan. Ese punto determina el <strong>precio de equilibrio (Pe)</strong> y la <strong>cantidad de equilibrio (Qe)</strong>.</p>
+
+  <p>Cuando el precio es diferente al de equilibrio, surgen fuerzas que lo empujan hacia él:</p>
+  <ul>
+    <li><strong>Exceso de demanda (escasez):</strong> el precio está por debajo de Pe, la cantidad demandada supera a la ofrecida. Los compradores compiten entre sí y el precio sube.</li>
+    <li><strong>Exceso de oferta (excedente):</strong> el precio está por encima de Pe, la cantidad ofrecida supera a la demandada. Los vendedores compiten entre sí y el precio baja.</li>
+  </ul>
+
+  <!-- SVG: Equilibrio, exceso de demanda y exceso de oferta -->
+  <svg class="diagram" viewBox="0 0 520 300" width="520" height="300" aria-label="Equilibrio de mercado, exceso de demanda y exceso de oferta">
+    <defs>
+      <marker id="ah4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+    <!-- Ejes -->
+    <line x1="50" y1="260" x2="480" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4)"/>
+    <line x1="50" y1="260" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4)"/>
+    <text x="490" y="264" font-size="13" fill="#555">Q</text>
+    <text x="34" y="15" font-size="13" fill="#555">P</text>
+
+    <!-- Curva demanda -->
+    <line x1="80" y1="60" x2="430" y2="240" stroke="#2563eb" stroke-width="2.2"/>
+    <text x="438" y="245" font-size="12" fill="#2563eb" font-weight="600">D</text>
+
+    <!-- Curva oferta -->
+    <line x1="80" y1="240" x2="430" y2="60" stroke="#16a34a" stroke-width="2.2"/>
+    <text x="438" y="65" font-size="12" fill="#16a34a" font-weight="600">O</text>
+
+    <!-- Equilibrio -->
+    <circle cx="255" cy="150" r="5" fill="#1a1a1a"/>
+    <text x="262" y="148" font-size="12" fill="#1a1a1a" font-weight="700">E</text>
+
+    <!-- Pe linea horizontal -->
+    <line x1="50" y1="150" x2="255" y2="150" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="30" y="154" font-size="12" fill="#555">Pe</text>
+    <!-- Qe linea vertical -->
+    <line x1="255" y1="150" x2="255" y2="260" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="247" y="274" font-size="12" fill="#555">Qe</text>
+
+    <!-- Exceso de demanda (precio bajo) -->
+    <line x1="50" y1="200" x2="470" y2="200" stroke="#ef4444" stroke-width="1" stroke-dasharray="5,3"/>
+    <text x="28" y="204" font-size="11" fill="#ef4444">P'</text>
+    <!-- Qd -->
+    <line x1="353" y1="200" x2="353" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="348" y="274" font-size="11" fill="#ef4444">Qd</text>
+    <!-- Qs -->
+    <line x1="158" y1="200" x2="158" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="153" y="274" font-size="11" fill="#ef4444">Qs</text>
+    <!-- Flecha escasez -->
+    <line x1="170" y1="215" x2="340" y2="215" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ah4)"/>
+    <text x="210" y="232" font-size="11" fill="#ef4444">exceso de demanda</text>
+  </svg>
+
+  <h3>Efectos de los cambios en oferta y demanda</h3>
+  <p>Cuando se produce un desplazamiento de alguna de las curvas, el punto de equilibrio cambia:</p>
+
+  <table>
+    <thead>
+      <tr><th>Cambio</th><th>Efecto sobre Pe</th><th>Efecto sobre Qe</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Aumento de la demanda (D se desplaza a la derecha)</td><td>Sube</td><td>Sube</td></tr>
+      <tr><td>Disminución de la demanda (D se desplaza a la izquierda)</td><td>Baja</td><td>Baja</td></tr>
+      <tr><td>Aumento de la oferta (O se desplaza a la derecha)</td><td>Baja</td><td>Sube</td></tr>
+      <tr><td>Disminución de la oferta (O se desplaza a la izquierda)</td><td>Sube</td><td>Baja</td></tr>
+      <tr><td>Aumento simultáneo D y O</td><td>Indeterminado</td><td>Sube</td></tr>
+      <tr><td>Disminución simultánea D y O</td><td>Indeterminado</td><td>Baja</td></tr>
+    </tbody>
+  </table>
+
+  <p>Cuando las dos curvas se desplazan en forma simultánea, el efecto sobre el precio de equilibrio es <strong>indeterminado</strong>: depende de la magnitud relativa de cada desplazamiento.</p>
+
+  <!-- ===== CONTROLES DE PRECIOS ===== -->
+  <h2>Controles de precios</h2>
+
+  <p>En determinadas situaciones el Estado interviene fijando precios que difieren del equilibrio de mercado. Existen dos tipos:</p>
+
+  <h3>Precio máximo (techo de precio)</h3>
+  <p>El Estado establece un precio por <strong>debajo</strong> del precio de equilibrio para proteger a los consumidores. Consecuencias:</p>
+  <ul>
+    <li>La cantidad demandada supera a la ofrecida: se genera <strong>escasez</strong>.</li>
+    <li>Es necesario implementar mecanismos de racionamiento (colas, sorteos, cupos).</li>
+    <li>Puede aparecer un mercado negro a precios superiores al máximo.</li>
+  </ul>
+
+  <h3>Precio mínimo (piso de precio)</h3>
+  <p>El Estado establece un precio por <strong>encima</strong> del precio de equilibrio para proteger a los productores o trabajadores. Consecuencias:</p>
+  <ul>
+    <li>La cantidad ofrecida supera a la demandada: se genera <strong>excedente</strong>.</li>
+    <li>Los productores no logran vender toda su producción al precio mínimo.</li>
+    <li>Ejemplo típico: salario mínimo en el mercado laboral.</li>
+  </ul>
+
+  <!-- SVG: precio máximo y precio mínimo -->
+  <svg class="diagram" viewBox="0 0 520 300" width="520" height="300" aria-label="Precio máximo y precio mínimo">
+    <defs>
+      <marker id="ah4b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+
+    <!-- Panel izquierdo: precio maximo -->
+    <!-- Ejes -->
+    <line x1="40" y1="260" x2="230" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <line x1="40" y1="260" x2="40" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <text x="238" y="264" font-size="11" fill="#555">Q</text>
+    <text x="25" y="15" font-size="11" fill="#555">P</text>
+    <text x="80" y="12" font-size="12" fill="#1a1a1a" font-weight="700">Precio máximo</text>
+
+    <!-- D y O izquierda -->
+    <line x1="60" y1="50" x2="210" y2="240" stroke="#2563eb" stroke-width="2"/>
+    <text x="216" y="244" font-size="11" fill="#2563eb" font-weight="600">D</text>
+    <line x1="60" y1="240" x2="210" y2="50" stroke="#16a34a" stroke-width="2"/>
+    <text x="216" y="55" font-size="11" fill="#16a34a" font-weight="600">O</text>
+
+    <!-- Eq izquierda en (135,145) -->
+    <circle cx="135" cy="145" r="4" fill="#1a1a1a"/>
+    <line x1="40" y1="145" x2="135" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="20" y="149" font-size="11" fill="#555">Pe</text>
+
+    <!-- Precio maximo Pmax por debajo de Pe, en y=190 -->
+    <line x1="40" y1="190" x2="215" y2="190" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6,3"/>
+    <text x="18" y="194" font-size="11" fill="#ef4444">Pm</text>
+
+    <!-- Qs (ofrecido a Pmax) y Qd (demandado a Pmax) -->
+    <line x1="93" y1="190" x2="93" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="88" y="272" font-size="10" fill="#ef4444">Qs</text>
+    <line x1="178" y1="190" x2="178" y2="260" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="173" y="272" font-size="10" fill="#ef4444">Qd</text>
+
+    <!-- Flecha escasez -->
+    <line x1="100" y1="205" x2="170" y2="205" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <text x="105" y="220" font-size="10" fill="#ef4444">escasez</text>
+
+    <!-- Panel derecho: precio minimo -->
+    <line x1="290" y1="260" x2="480" y2="260" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <line x1="290" y1="260" x2="290" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <text x="488" y="264" font-size="11" fill="#555">Q</text>
+    <text x="275" y="15" font-size="11" fill="#555">P</text>
+    <text x="320" y="12" font-size="12" fill="#1a1a1a" font-weight="700">Precio mínimo</text>
+
+    <!-- D y O derecha -->
+    <line x1="310" y1="50" x2="460" y2="240" stroke="#2563eb" stroke-width="2"/>
+    <text x="466" y="244" font-size="11" fill="#2563eb" font-weight="600">D</text>
+    <line x1="310" y1="240" x2="460" y2="50" stroke="#16a34a" stroke-width="2"/>
+    <text x="466" y="55" font-size="11" fill="#16a34a" font-weight="600">O</text>
+
+    <!-- Eq derecha en (385,145) -->
+    <circle cx="385" cy="145" r="4" fill="#1a1a1a"/>
+    <line x1="290" y1="145" x2="385" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="270" y="149" font-size="11" fill="#555">Pe</text>
+
+    <!-- Precio minimo Pmin por encima de Pe, en y=100 -->
+    <line x1="290" y1="100" x2="465" y2="100" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6,3"/>
+    <text x="268" y="104" font-size="11" fill="#f59e0b">Pm</text>
+
+    <!-- Qd (demandado a Pmin) y Qs (ofrecido a Pmin) -->
+    <line x1="343" y1="100" x2="343" y2="260" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="338" y="272" font-size="10" fill="#f59e0b">Qd</text>
+    <line x1="428" y1="100" x2="428" y2="260" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="423" y="272" font-size="10" fill="#f59e0b">Qs</text>
+
+    <!-- Flecha excedente -->
+    <line x1="350" y1="115" x2="420" y2="115" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#ah4b)"/>
+    <text x="350" y="130" font-size="10" fill="#f59e0b">excedente</text>
+  </svg>
+
+  <!-- ===== EQUILIBRIO ALGEBRAICO ===== -->
+  <h2>Equilibrio algebraico</h2>
+
+  <p>Si se expresan las curvas de oferta y demanda en forma lineal, es posible calcular el precio y la cantidad de equilibrio de manera algebraica.</p>
+
+  <div class="big-formula">
+    <span class="label">Funciones lineales de demanda y oferta</span>
+    <div class="eq">Qd = a - bP &nbsp;&nbsp; | &nbsp;&nbsp; Qo = c + dP</div>
+    <ul class="vars">
+      <li><span>a, b</span> parámetros de la demanda (a = intercepto, b = pendiente inversa)</li>
+      <li><span>c, d</span> parámetros de la oferta (c = intercepto, d = pendiente inversa)</li>
+    </ul>
+  </div>
+
+  <p>En el equilibrio Qd = Qo, entonces:</p>
+
+  <div class="formula">
+    <span class="label">Precio de equilibrio</span>
+    a - bP* = c + dP*  →  P* = (a - c) / (b + d)
+  </div>
+
+  <div class="formula">
+    <span class="label">Cantidad de equilibrio</span>
+    Q* = a - b · P*
+  </div>
+
+  <div class="exercises">
+    <details class="ex">
+      <summary>Ejercicio: calcular Pe y Qe a partir de funciones lineales</summary>
+      <div class="body">
+        <p><strong>Datos:</strong> Qd = 100 - 5P y Qo = 10 + 3P. Hallar precio y cantidad de equilibrio.</p>
+        <div class="worked">
+          <div class="step"><div class="n">1</div><div class="t">Igualar Qd = Qo: 100 - 5P = 10 + 3P</div></div>
+          <div class="step"><div class="n">2</div><div class="t">Despejar P: 100 - 10 = 3P + 5P → 90 = 8P → <strong>P* = 11,25</strong></div></div>
+          <div class="step"><div class="n">3</div><div class="t">Calcular Q*: Q* = 100 - 5 × 11,25 = 100 - 56,25 = <strong>Q* = 43,75</strong></div></div>
+          <div class="step"><div class="n">4</div><div class="t">Verificar con oferta: Qo = 10 + 3 × 11,25 = 10 + 33,75 = 43,75. Coincide.</div></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ===== CLASIFICACION DE MERCADOS ===== -->
+  <h2>Clasificación de los mercados</h2>
+
+  <p>Los mercados difieren según cuatro elementos condicionantes: número de empresas, grado de diferenciación del producto, poder para fijar precios y existencia de barreras a la entrada.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo de mercado</th>
+        <th>N. de empresas</th>
+        <th>Diferenciación</th>
+        <th>Poder de precios</th>
+        <th>Barreras</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Competencia perfecta</strong></td>
+        <td>Muchas</td>
+        <td>Homogéneo</td>
+        <td>Ninguno (tomadores)</td>
+        <td>Libres</td>
+      </tr>
+      <tr>
+        <td><strong>Competencia monopolística</strong></td>
+        <td>Muchas</td>
+        <td>Diferenciado</td>
+        <td>Escaso</td>
+        <td>Libres</td>
+      </tr>
+      <tr>
+        <td><strong>Oligopolio</strong></td>
+        <td>Pocas</td>
+        <td>Homogéneo o diferenciado</td>
+        <td>Importante</td>
+        <td>Altas</td>
+      </tr>
+      <tr>
+        <td><strong>Monopolio</strong></td>
+        <td>Una</td>
+        <td>Único (sin sustitutos)</td>
+        <td>Total</td>
+        <td>Infranqueables</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ===== COMPETENCIA PERFECTA ===== -->
+  <h2>Competencia perfecta</h2>
+
+  <p>La competencia perfecta es la estructura de mercado donde la interacción de la oferta y la demanda determina libremente el precio, sin que ninguna empresa individual pueda influir en él. Sus cinco características son:</p>
+
+  <div class="box">
+    <div class="box-title">Características de la competencia perfecta</div>
+    <ol>
+      <li><strong>Libre entrada y salida:</strong> cualquier empresa puede entrar o salir del mercado sin restricciones.</li>
+      <li><strong>Gran número de compradores y vendedores (atomización):</strong> ninguno representa una fracción significativa del mercado.</li>
+      <li><strong>Producto homogéneo:</strong> los bienes son idénticos entre sí, sin diferenciación.</li>
+      <li><strong>Precio-aceptantes (price-takers):</strong> cada empresa toma el precio de mercado como dado.</li>
+      <li><strong>Información perfecta:</strong> todos los participantes conocen precios y tecnologías disponibles.</li>
+    </ol>
+  </div>
+
+  <h3>La empresa competitiva y su curva de demanda</h3>
+
+  <p>Dado que la empresa es precio-aceptante, la curva de demanda que enfrenta es <strong>perfectamente horizontal</strong> al precio de mercado. Puede vender cualquier cantidad a ese precio, pero no puede vender nada a un precio superior.</p>
+
+  <p>Para una empresa competitiva se cumple que el ingreso medio iguala al ingreso marginal y ambos son iguales al precio:</p>
+
+  <div class="formula">
+    <span class="label">Identidad clave en competencia perfecta</span>
+    d = P = IMe = IM
+  </div>
+
+  <p>Donde:</p>
+  <ul>
+    <li><strong>d:</strong> curva de demanda de la empresa (horizontal)</li>
+    <li><strong>IMe = IT/q = P·q/q = P:</strong> el ingreso medio es siempre igual al precio</li>
+    <li><strong>IM = ΔIT/Δq = P:</strong> cada unidad adicional vendida aporta exactamente P</li>
+  </ul>
+
+  <!-- SVG: curva de demanda horizontal de la empresa competitiva -->
+  <svg class="diagram" viewBox="0 0 420 240" width="420" height="240" aria-label="Curva de demanda horizontal empresa competitiva">
+    <defs>
+      <marker id="ah4c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+    <line x1="50" y1="210" x2="400" y2="210" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4c)"/>
+    <line x1="50" y1="210" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4c)"/>
+    <text x="408" y="214" font-size="13" fill="#555">q</text>
+    <text x="34" y="15" font-size="13" fill="#555">P</text>
+
+    <!-- Linea horizontal -->
+    <line x1="50" y1="100" x2="380" y2="100" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="384" y="105" font-size="13" fill="#2563eb" font-weight="700">d = P = IMe = IM</text>
+
+    <!-- P en eje -->
+    <line x1="50" y1="100" x2="50" y2="100" stroke="#888" stroke-width="1"/>
+    <text x="30" y="104" font-size="13" fill="#555" font-weight="600">P</text>
+
+    <!-- Anotacion: la empresa puede vender lo que quiera a P -->
+    <text x="120" y="85" font-size="12" fill="#888" font-style="italic">precio de mercado dado</text>
+  </svg>
+
+  <!-- ===== MAXIMIZACION DEL BENEFICIO ===== -->
+  <h2>Maximización del beneficio en competencia perfecta</h2>
+
+  <p>Una empresa maximiza sus beneficios produciendo la cantidad donde el ingreso marginal iguala al costo marginal. En competencia perfecta, como IM = P, la condición queda:</p>
+
+  <div class="big-formula">
+    <span class="label">Condición de maximización en competencia perfecta</span>
+    <div class="eq">P = CM</div>
+    <ul class="vars">
+      <li><span>P</span> precio de mercado (= IM en competencia perfecta)</li>
+      <li><span>CM</span> costo marginal (costo de producir una unidad adicional)</li>
+    </ul>
+  </div>
+
+  <p>La empresa debe producir en el punto donde P = CM <strong>y</strong> CM sea creciente (condición de segundo orden), para asegurarse de que está en un máximo y no en un mínimo.</p>
+
+  <h3>Ejemplo numérico: granja de trigo</h3>
+  <p>La granja obtiene un precio de mercado de $12 por unidad. La tabla muestra los costos marginales:</p>
+
+  <table>
+    <thead>
+      <tr><th>q (quintales)</th><th>CM ($)</th><th>P = IM ($)</th><th>Beneficio marginal</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>4</td><td>12</td><td>+8 (producir)</td></tr>
+      <tr><td>2</td><td>6</td><td>12</td><td>+6 (producir)</td></tr>
+      <tr><td>3</td><td>8</td><td>12</td><td>+4 (producir)</td></tr>
+      <tr><td>4</td><td>10</td><td>12</td><td>+2 (producir)</td></tr>
+      <tr><td>5</td><td>12</td><td>12</td><td>0 (óptimo)</td></tr>
+      <tr><td>6</td><td>14</td><td>12</td><td>-2 (no producir)</td></tr>
+    </tbody>
+  </table>
+  <p>La granja maximiza beneficios produciendo <strong>q = 5</strong>, donde P = CM = 12.</p>
+
+  <!-- ===== CURVA DE OFERTA DE CORTO PLAZO ===== -->
+  <h2>Curva de oferta de corto plazo</h2>
+
+  <p>La curva de oferta de la empresa competitiva en el corto plazo es la porción de la curva de CM que se encuentra <strong>por encima del mínimo del CVMe</strong>. Cuando el precio cae por debajo del CVMe mínimo, la empresa cierra porque no cubre ni los costos variables.</p>
+
+  <p>Hay dos puntos clave sobre la curva de CM:</p>
+
+  <div class="box">
+    <div class="box-title">Puntos críticos</div>
+    <p><strong>Punto de nivelación (N):</strong> es donde CM = CTMe (mínimo). La empresa no tiene beneficios extraordinarios ni pérdidas; solo cubre todos sus costos. Si P &gt; CTMe mínimo hay ganancias; si P &lt; CTMe mínimo hay pérdidas.</p>
+    <p style="margin-top:10px"><strong>Punto de cierre (C):</strong> es donde CM = CVMe (mínimo). Si el precio cae por debajo de CVMe mínimo, la empresa no puede cubrir sus costos variables y es mejor cerrar.</p>
+    <p style="margin-top:10px">Regla: si <strong>P ≥ CVMe</strong>, conviene producir (aunque haya pérdidas se cubren al menos los costos variables); si <strong>P &lt; CVMe</strong>, conviene cerrar.</p>
+  </div>
+
+  <!-- SVG: curva de oferta de corto plazo -->
+  <svg class="diagram" viewBox="0 0 420 300" width="420" height="300" aria-label="Curva de oferta de corto plazo: puntos de nivelación y cierre">
+    <defs>
+      <marker id="ah4d" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+      </marker>
+    </defs>
+    <line x1="50" y1="270" x2="400" y2="270" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4d)"/>
+    <line x1="50" y1="270" x2="50" y2="20" stroke="#bbb" stroke-width="1.5" marker-end="url(#ah4d)"/>
+    <text x="408" y="274" font-size="13" fill="#555">q</text>
+    <text x="34" y="15" font-size="13" fill="#555">P</text>
+
+    <!-- CVMe: curva en U alta -->
+    <path d="M 80,220 Q 180,130 330,160" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <text x="338" y="165" font-size="12" fill="#f59e0b" font-weight="600">CVMe</text>
+
+    <!-- CTMe: curva en U mas alta -->
+    <path d="M 80,180 Q 190,90 330,110" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <text x="338" y="115" font-size="12" fill="#ef4444" font-weight="600">CTMe</text>
+
+    <!-- CM: curva creciente, corta los minimos de CVMe y CTMe -->
+    <path d="M 80,250 Q 100,200 140,165 Q 200,110 330,60" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    <text x="338" y="65" font-size="12" fill="#1a1a1a" font-weight="700">CM</text>
+
+    <!-- Punto de cierre C donde CM = CVMe min -->
+    <circle cx="195" cy="152" r="5" fill="#f59e0b"/>
+    <text x="202" y="148" font-size="12" fill="#f59e0b" font-weight="700">C</text>
+    <line x1="50" y1="152" x2="195" y2="152" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="26" y="156" font-size="11" fill="#f59e0b">CVMe</text>
+    <text x="26" y="168" font-size="11" fill="#f59e0b">min</text>
+
+    <!-- Punto de nivelacion N donde CM = CTMe min -->
+    <circle cx="220" cy="112" r="5" fill="#ef4444"/>
+    <text x="228" y="108" font-size="12" fill="#ef4444" font-weight="700">N</text>
+    <line x1="50" y1="112" x2="220" y2="112" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="26" y="116" font-size="11" fill="#ef4444">CTMe</text>
+    <text x="26" y="128" font-size="11" fill="#ef4444">min</text>
+
+    <!-- Oferta = CM por encima de C -->
+    <path d="M 195,152 Q 240,110 330,60" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+    <text x="340" y="55" font-size="12" fill="#2563eb" font-weight="700">O</text>
+
+    <!-- Zona de cierre -->
+    <rect x="50" y="152" width="145" height="118" fill="#fef9c3" opacity="0.4"/>
+    <text x="90" y="220" font-size="11" fill="#92400e">zona de cierre</text>
+  </svg>
+
+  <!-- ===== LARGO PLAZO EN COMPETENCIA PERFECTA ===== -->
+  <h2>Largo plazo en competencia perfecta</h2>
+
+  <p>En el largo plazo, la libre entrada y salida de empresas elimina los beneficios extraordinarios. Si las empresas obtienen ganancias, nuevas firmas entran, la oferta se desplaza a la derecha y el precio cae hasta que los beneficios se anulan. Si las empresas tienen pérdidas, salen del mercado, la oferta se contrae y el precio sube hasta que las pérdidas desaparecen.</p>
+
+  <p>El resultado de largo plazo es:</p>
+
+  <div class="formula">
+    <span class="label">Equilibrio de largo plazo en competencia perfecta</span>
+    P = CM = CTMe mínimo    →    beneficio económico = 0
+  </div>
+
+  <p>Esto implica que la empresa produce en el nivel de producción de mínimo costo (escala eficiente), lo que representa una asignación eficiente de recursos.</p>
+
+  <!-- ===== QUIZ ===== -->
+  <div class="quiz-section" id="quiz-u4">
+    <h2>Mini-quiz: Unidad 4</h2>
+    <form id="form-u4" novalidate>
+
+      <!-- P1 -->
+      <div class="quiz-q" id="q4-1">
+        <div class="qtext">1. ¿Qué sucede cuando el precio de mercado se ubica por debajo del precio de equilibrio?</div>
+        <label><input type="radio" name="q4-1" value="a"> Hay exceso de oferta y el precio tiende a bajar.</label>
+        <label><input type="radio" name="q4-1" value="b"> Hay exceso de demanda y el precio tiende a subir.</label>
+        <label><input type="radio" name="q4-1" value="c"> El mercado permanece en equilibrio.</label>
+        <label><input type="radio" name="q4-1" value="d"> La curva de oferta se desplaza hacia la derecha.</label>
+        <div class="feedback" id="fb4-1"></div>
+      </div>
+
+      <!-- P2 -->
+      <div class="quiz-q" id="q4-2">
+        <div class="qtext">2. Si el Estado fija un precio máximo por debajo del equilibrio, ¿cuál es la consecuencia?</div>
+        <label><input type="radio" name="q4-2" value="a"> Se genera un excedente de oferta.</label>
+        <label><input type="radio" name="q4-2" value="b"> El mercado se equilibra automáticamente.</label>
+        <label><input type="radio" name="q4-2" value="c"> Se genera escasez y puede ser necesario racionar.</label>
+        <label><input type="radio" name="q4-2" value="d"> El precio sube hasta el nivel de equilibrio.</label>
+        <div class="feedback" id="fb4-2"></div>
+      </div>
+
+      <!-- P3 -->
+      <div class="quiz-q" id="q4-3">
+        <div class="qtext">3. En competencia perfecta, la curva de demanda que enfrenta cada empresa es:</div>
+        <label><input type="radio" name="q4-3" value="a"> Decreciente, igual a la demanda del mercado.</label>
+        <label><input type="radio" name="q4-3" value="b"> Creciente, porque más precio incentiva más compras.</label>
+        <label><input type="radio" name="q4-3" value="c"> Horizontal al precio de mercado (perfectamente elástica).</label>
+        <label><input type="radio" name="q4-3" value="d"> Vertical (perfectamente inelástica).</label>
+        <div class="feedback" id="fb4-3"></div>
+      </div>
+
+      <!-- P4 -->
+      <div class="quiz-q" id="q4-4">
+        <div class="qtext">4. La condición de maximización del beneficio en competencia perfecta es:</div>
+        <label><input type="radio" name="q4-4" value="a"> P = CTMe</label>
+        <label><input type="radio" name="q4-4" value="b"> P = CM</label>
+        <label><input type="radio" name="q4-4" value="c"> IT = CT</label>
+        <label><input type="radio" name="q4-4" value="d"> IM = CTMe</label>
+        <div class="feedback" id="fb4-4"></div>
+      </div>
+
+      <!-- P5 -->
+      <div class="quiz-q" id="q4-5">
+        <div class="qtext">5. El punto de cierre de una empresa competitiva se ubica donde:</div>
+        <label><input type="radio" name="q4-5" value="a"> CM = CTMe mínimo</label>
+        <label><input type="radio" name="q4-5" value="b"> CM = CVMe mínimo</label>
+        <label><input type="radio" name="q4-5" value="c"> P = CTMe mínimo</label>
+        <label><input type="radio" name="q4-5" value="d"> IT = CT</label>
+        <div class="feedback" id="fb4-5"></div>
+      </div>
+
+      <!-- P6 -->
+      <div class="quiz-q" id="q4-6">
+        <div class="qtext">6. Si Qd = 80 - 4P y Qo = 8 + 4P, ¿cuál es el precio de equilibrio?</div>
+        <label><input type="radio" name="q4-6" value="a"> P* = 9</label>
+        <label><input type="radio" name="q4-6" value="b"> P* = 10</label>
+        <label><input type="radio" name="q4-6" value="c"> P* = 12</label>
+        <label><input type="radio" name="q4-6" value="d"> P* = 8</label>
+        <div class="feedback" id="fb4-6"></div>
+      </div>
+
+      <button type="button" class="check-btn" onclick="checkQuizU4()">Verificar respuestas</button>
+      <div class="quiz-result" id="result-u4"></div>
+    </form>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  Economía I · Lic. Marisa Soledad Lagraña · UCES 2026 &nbsp;|&nbsp;
+  <a href="index.html" style="color:#888">Volver al inicio</a>
+</footer>
+
+<script>
+const answersU4 = {
+  'q4-1': { correct: 'b', feedback: {
+    a: 'Incorrecto. El exceso de oferta ocurre cuando el precio está por encima del equilibrio.',
+    b: 'Correcto. Precio menor al de equilibrio genera exceso de demanda (escasez) y el precio sube.',
+    c: 'Incorrecto. El mercado no está en equilibrio; hay presión para que el precio cambie.',
+    d: 'Incorrecto. Los desplazamientos de curvas responden a cambios en otras variables, no al precio.'
+  }},
+  'q4-2': { correct: 'c', feedback: {
+    a: 'Incorrecto. El excedente de oferta ocurre con precio mínimo por encima del equilibrio.',
+    b: 'Incorrecto. El precio máximo debajo del equilibrio impide que el mercado se equilibre libremente.',
+    c: 'Correcto. Un precio máximo debajo de Pe genera escasez porque Qd > Qs, y puede requerir racionamiento.',
+    d: 'Incorrecto. El precio no puede subir: el máximo fijado es el techo legal.'
+  }},
+  'q4-3': { correct: 'c', feedback: {
+    a: 'Incorrecto. Esa es la demanda del mercado; la empresa es precio-aceptante.',
+    b: 'Incorrecto. Las curvas de demanda son decrecientes, no crecientes.',
+    c: 'Correcto. La empresa es precio-aceptante: puede vender cualquier cantidad a P y nada sobre P. La curva es horizontal.',
+    d: 'Incorrecto. Una curva vertical implicaría que el precio no afecta la cantidad demandada.'
+  }},
+  'q4-4': { correct: 'b', feedback: {
+    a: 'Incorrecto. P = CTMe define el punto de nivelación, no el óptimo de producción.',
+    b: 'Correcto. En competencia perfecta IM = P, y la condición IM = CM se traduce en P = CM.',
+    c: 'Incorrecto. IT = CT significa beneficio cero, no necesariamente el máximo.',
+    d: 'Incorrecto. IM = CTMe no es una condición estándar de optimización.'
+  }},
+  'q4-5': { correct: 'b', feedback: {
+    a: 'Incorrecto. Ese es el punto de nivelación (N) donde la empresa cubre todos sus costos.',
+    b: 'Correcto. El punto de cierre (C) está donde CM = CVMe mínimo. Si P < CVMe, la empresa cierra.',
+    c: 'Incorrecto. P = CTMe mínimo es la condición del punto de nivelación.',
+    d: 'Incorrecto. IT = CT significa beneficio cero, distinto al punto de cierre.'
+  }},
+  'q4-6': { correct: 'a', feedback: {
+    a: 'Correcto. 80 - 4P = 8 + 4P → 72 = 8P → P* = 9. Q* = 80 - 4×9 = 80 - 36 = 44.',
+    b: 'Incorrecto. Revisá el despeje: 80 - 8 = 4P + 4P → 72 = 8P → P* = 9.',
+    c: 'Incorrecto. P* = 9, no 12.',
+    d: 'Incorrecto. P* = 9, no 8.'
+  }}
+};
+
+function checkQuizU4() {
+  let correct = 0;
+  const total = Object.keys(answersU4).length;
+
+  for (const [qname, data] of Object.entries(answersU4)) {
+    const selected = document.querySelector(`input[name="${qname}"]:checked`);
+    const fb = document.getElementById('fb' + qname.replace('q4-', '4-'));
+    if (!selected) {
+      fb.className = 'feedback wrong';
+      fb.textContent = 'Seleccioná una opción.';
+      continue;
+    }
+    const val = selected.value;
+    fb.className = 'feedback ' + (val === data.correct ? 'correct' : 'wrong');
+    fb.textContent = data.feedback[val] || '';
+    if (val === data.correct) correct++;
+  }
+
+  const resultEl = document.getElementById('result-u4');
+  resultEl.style.display = 'block';
+  const pct = Math.round((correct / total) * 100);
+  if (pct === 100) {
+    resultEl.style.background = '#d1fae5'; resultEl.style.color = '#065f46';
+    resultEl.textContent = `Perfecto: ${correct}/${total}. Dominás la unidad.`;
+  } else if (pct >= 60) {
+    resultEl.style.background = '#fef3c7'; resultEl.style.color = '#92400e';
+    resultEl.textContent = `Bien: ${correct}/${total} (${pct}%). Repasá las que fallaste.`;
+  } else {
+    resultEl.style.background = '#fee2e2'; resultEl.style.color = '#991b1b';
+    resultEl.textContent = `${correct}/${total} (${pct}%). Conviene repasar los conceptos.`;
+  }
+}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => null);
+  });
+}
+</script>
+</body>
+</html>

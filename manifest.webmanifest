@@ -1,7 +1,7 @@
 {
-  "name": "Economía I - Parcial 1 UCES",
+  "name": "Economía I - UCES 2026",
   "short_name": "Economía I",
-  "description": "Resumen, mapa mental y parciales simulados de Fundamentos de Economía I (UCES 2026)",
+  "description": "Resumen completo U1-U5, mapa mental, taller de fórmulas, práctica y final integrador de Fundamentos de Economía I (UCES 2026)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
